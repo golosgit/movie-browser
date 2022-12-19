@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.color.whisper};
+    color: ${({ theme }) => theme.color.woodsmoke};
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
