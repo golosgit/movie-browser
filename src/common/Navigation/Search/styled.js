@@ -9,6 +9,10 @@ export const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    height: 44px;
+  }
 `;
 
 export const StyledInput = styled.input`
