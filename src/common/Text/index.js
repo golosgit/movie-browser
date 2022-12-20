@@ -1,22 +1,28 @@
 import styled, { css } from "styled-components";
 
-export const Header = styled.h2`
-  margin: 56px 0 0 0;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 1.2;
+export const Text = styled.p`
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 16px 0 0 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    margin-top: 24px;
-    font-size: 20px;
+    font-size: 14px;
   }
 
   ${({ errorMessage }) => errorMessage && css`
     margin-top: 24px;
+    display: inline-block;
+    width: 460px;
     text-align: center;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
       margin-top: 12px;
+      width: 280px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMin}px) {
+      width: unset;
     }
   `}
 `;
