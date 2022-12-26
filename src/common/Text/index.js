@@ -25,4 +25,10 @@ export const Text = styled.p`
       width: unset;
     }
   `}
+
+  ${({ list }) => list && css`
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      margin-top: 8px;
+    }
+  `}
 `;
