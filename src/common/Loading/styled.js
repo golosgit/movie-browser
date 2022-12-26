@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Icon } from "../images/loading.svg";
+import { ReactComponent as Icon } from "./loading.svg";
 
 export const Wrapper = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Icon } from "../images/error.svg";
+import { ReactComponent as Icon } from "./error.svg";
 
 export const Wrapper = styled.div`
   margin: 180px auto 0;

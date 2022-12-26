@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import noImage from "../../common/images/profile.svg";
+import noImage from "./profile.svg";
 
 export const PeopleListContainer = styled.div`
   margin-top: 24px;
