@@ -15,8 +15,9 @@ export const NavigationWrapper = styled.div`
   padding: 24px 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletVerticalMax}px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     grid-template-rows: auto auto;
+    padding: 16px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMin}px) {
@@ -33,7 +34,8 @@ export const Logo = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletVerticalMax}px) {
     margin: 0;
-    justify-content: center
+    justify-content: center;
+    min-width: 120px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMin}px) {
