@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import noImage from "../../common/images/video.svg";
+import noImage from "../images/video.svg";
 
 export const MovieListContaier = styled.div`
   margin-top: 24px;
