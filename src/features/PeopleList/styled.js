@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import noImage from "./profile.svg";
 
 export const PeopleListContainer = styled.div`

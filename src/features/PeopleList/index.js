@@ -11,7 +11,7 @@ export const PeopleList = ({ title }) => {
         <PersonTile>
           <PersonImage/>
           <Text list>Liu Yifei</Text>
-          <OptionalText>Mulan</OptionalText>
+          <OptionalText person>Mulan</OptionalText>
         </PersonTile>
       </PeopleListContainer>
     </>

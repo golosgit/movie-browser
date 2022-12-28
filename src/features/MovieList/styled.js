@@ -24,7 +24,8 @@ export const MovieListTile = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.heather};
   border-radius: 5px;
-  text-align: left;
+  display: grid;
+  grid-template-rows: auto 1fr;
 `;
 
 export const MovieListImage = styled.img`
@@ -44,5 +45,6 @@ export const MovieListImage = styled.img`
 `;
 
 export const MovieInfo = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
 `;
