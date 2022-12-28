@@ -26,6 +26,10 @@ export const MovieListTile = styled.div`
   border-radius: 5px;
   display: grid;
   grid-template-rows: auto 1fr;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+    grid-template-columns: auto 1fr;
+  }
 `;
 
 export const MovieListImage = styled.img`
@@ -41,6 +45,12 @@ export const MovieListImage = styled.img`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     min-width: 114px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+    grid-template-columns: auto 1fr;
+    width: 114px;
+    margin-right: 16px;
   }
 `;
 

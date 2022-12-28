@@ -6,7 +6,7 @@ export const Rating = () => {
     <Container>
       <StyledIcon />
       <Evaluation>7.8</Evaluation>
-      <OptionalText popular>35 votes</OptionalText>
+      <OptionalText list>35 votes</OptionalText>
     </Container>
   );
 };

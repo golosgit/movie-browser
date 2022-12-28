@@ -31,4 +31,14 @@ export const Text = styled.p`
       margin-top: 8px;
     }
   `}
+
+  ${({ movie }) => movie && css`
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      margin: 0;
+    }
+  `}
 `;

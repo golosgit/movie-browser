@@ -9,6 +9,7 @@ export const Container = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     gap: 8px;
+    align-items: flex-start;
   }
 `;
 
@@ -19,6 +20,7 @@ export const StyledIcon = styled(Star)`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     width: 16px;
+    transform: translateY(-1px);
   }
 `;
 

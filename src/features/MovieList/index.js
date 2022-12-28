@@ -2,7 +2,8 @@ import { MovieListContaier, MovieListTile, MovieListImage, MovieInfo } from "./s
 import { Header } from "../../common/Header";
 import { Text } from "../../common/Text";
 import { OptionalText } from "../../common/OptionalText";
-import poster from "./poster.png";
+import { Genres } from "../../common/Genres";
+import { Rating } from "../../common/Rating";
 
 export const MovieList = ({ title }) => {
   return (
@@ -12,33 +13,11 @@ export const MovieList = ({ title }) => {
         <MovieListTile>
           <MovieListImage />
           <MovieInfo>
-            <Text>Mulan</Text>
-            <OptionalText>2020</OptionalText>
+            <Text movie>Mulan</Text>
+            <OptionalText movie>2020</OptionalText>
+            <Genres />
+            <Rating />
           </MovieInfo>
-        </MovieListTile>
-
-        <MovieListTile>
-          <MovieListImage src={poster} />
-          <MovieInfo>
-            <Text>Mulan</Text>
-            <OptionalText>2020</OptionalText>
-          </MovieInfo>
-        </MovieListTile>
-
-        <MovieListTile>
-          <MovieListImage />
-          <MovieInfo>
-            <Text>Mulan</Text>
-            <OptionalText>2020</OptionalText>
-          </MovieInfo>
-        </MovieListTile>
-
-        <MovieListTile>
-          <MovieListImage />
-        </MovieListTile>
-
-        <MovieListTile>
-          <MovieListImage />
         </MovieListTile>
       </MovieListContaier>
     </>
