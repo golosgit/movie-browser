@@ -25,4 +25,20 @@ export const OptionalText = styled.p`
       font-size: 13px;
     }
   `}
+
+  ${({ details }) => details && css`
+    font-size: 20px;
+    line-height: 1.6;
+    color: ${({ theme }) => theme.color.black};
+    margin-top: 24px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      margin-top: 16px;
+      font-size: 16px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      font-size: 14px;
+    }
+  `}
 `;

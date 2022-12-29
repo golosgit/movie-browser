@@ -8,6 +8,7 @@ export const theme = {
     waterloo: "#7E839A",
     woodsmoke: "#18181B",
     scienceBlue: "#0044CC",
+    black: "#000000",
   },
   breakpoint: {
     mobileMin: 319,
