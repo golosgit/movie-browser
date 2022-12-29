@@ -92,7 +92,7 @@ export const LinkWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 12px;
     line-height: 18px;
-    gap: 12px;
+    gap: 4px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMin}px) {
