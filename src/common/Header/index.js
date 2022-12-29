@@ -19,4 +19,19 @@ export const Header = styled.h2`
       margin-top: 12px;
     }
   `}
+
+  ${({ details }) => details && css`
+    margin-top: 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      margin-top: 4px;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      font-weight: 500;
+      font-size: 14px;
+    }
+  `}
 `;
