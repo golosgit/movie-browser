@@ -80,13 +80,31 @@ export const Info = styled.div`
   grid-template-rows: auto;
 `;
 
+export const Year = styled.div`
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 120%;
+  color: ${({ theme }) => theme.color.black};
+  margin-top: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 130%;
+    color: ${({ theme }) => theme.color.waterloo};
+  }
+`;
+
 export const List = styled.dl`
   margin: 24px 0 0;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
-  display: grid;
-  grid-template-columns: auto 1fr;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 16px;
@@ -95,23 +113,34 @@ export const List = styled.dl`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     font-size: 12px;
-    grid-template-columns: auto;
+
+    ${({ movie }) => movie && css`
+      margin-top: 8px;
+    `}
   }
 `;
 
-export const ListTerm = styled.dt`
-  color: ${({ theme }) => theme.color.stormGray};
-  margin-right: 10px;
+export const ListRow = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
-    margin: 0;
+    grid-template-columns: 1fr;
+    grid-gap: 4px;
   }
 
   ${({ nextItem }) => nextItem && css`
     margin-top: 8px;
+  `}
+`;
 
+export const ListTerm = styled.dt`
+  color: ${({ theme }) => theme.color.stormGray};
+
+  ${({ movie }) => movie && css`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
-      margin-top: 8px;
+      display: none;
     }
   `}
 `;
@@ -119,14 +148,6 @@ export const ListTerm = styled.dt`
 export const ListDescription = styled.dd`
   color: ${({ theme }) => theme.color.black};
   margin: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
-    margin: 4px 0 0;
-  }
-
-  ${({ nextItem }) => nextItem && css`
-    margin-top: 8px;
-  `}
 `;
 
 export const Description = styled.div`

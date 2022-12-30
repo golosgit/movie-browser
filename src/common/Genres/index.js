@@ -1,8 +1,8 @@
 import { Container, GenreTile } from "./styled";
 
-export const Genres = () => {
+export const Genres = ({ details }) => {
   return (
-    <Container>
+    <Container details={details}>
       <GenreTile>Action</GenreTile>
       <GenreTile>Adventure</GenreTile>
       <GenreTile>Drama</GenreTile>

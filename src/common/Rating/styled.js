@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as Star } from "./star.svg";
 
 export const Container = styled.div`
@@ -11,6 +11,20 @@ export const Container = styled.div`
     gap: 8px;
     align-items: flex-start;
   }
+
+  ${({ details }) => details && css`
+    margin-top: 24px;
+    gap: 8px;
+    align-items: center;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      margin-top: 16px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      margin-top: 8px;
+    }
+  `}
 `;
 
 export const StyledIcon = styled(Star)`
@@ -22,6 +36,10 @@ export const StyledIcon = styled(Star)`
     width: 16px;
     transform: translateY(-1px);
   }
+
+  ${({ details }) => details && css`
+    transform: translateY(-2px);
+  `}
 `;
 
 export const Evaluation = styled.p`
@@ -34,4 +52,10 @@ export const Evaluation = styled.p`
     font-size: 13px;
     line-height: 1.3;
   }
+
+  ${({ details }) => details && css`
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.3;
+  `}
 `;

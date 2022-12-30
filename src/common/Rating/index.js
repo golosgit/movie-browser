@@ -1,12 +1,13 @@
 import { Container, StyledIcon, Evaluation } from "./styled";
 import { OptionalText } from "../OptionalText";
 
-export const Rating = () => {
+export const Rating = ({ details }) => {
   return (
-    <Container>
-      <StyledIcon />
-      <Evaluation>7.8</Evaluation>
-      <OptionalText list>35 votes</OptionalText>
+    <Container details={details}>
+      <StyledIcon details={details}/>
+      <Evaluation details={details}>7.8</Evaluation>
+      <OptionalText details={details} max>/ 10</OptionalText>
+      <OptionalText details={details} votes>335 votes</OptionalText>
     </Container>
   );
 };

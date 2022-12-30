@@ -27,6 +27,35 @@ export const OptionalText = styled.p`
   `}
 
   ${({ details }) => details && css`
+    font-size: 14px;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.color.black};
+    margin: 0;
+    transform: translateY(3px);
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      font-size: 13px;
+      line-height: 1.3;
+      color: ${({ theme }) => theme.color.waterloo};
+      transform: translateY(0px);
+    }
+
+    ${({ votes }) => votes && css`
+      margin-left: 4px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+        margin: 0;
+      }
+    `}
+
+    ${({ max }) => max && css`
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+        display: none;
+      }
+    `}
+  `}
+
+  ${({ description }) => description && css`
     font-size: 20px;
     line-height: 1.6;
     color: ${({ theme }) => theme.color.black};

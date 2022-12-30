@@ -1,11 +1,27 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 8px;
-  gap: 8px;
+  gap: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+    gap: 8px;
+  }
+
+  ${({ details }) => details && css`
+    margin-top: 24px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      margin-top: 16px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      margin-top: 8px;
+    }
+  `}
 `;
 
 export const GenreTile = styled.div`

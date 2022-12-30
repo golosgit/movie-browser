@@ -3,31 +3,42 @@ import {
   Image, 
   Info, 
   Description,
-  List,
-  ListTerm,
+  Year, 
+  List, 
+  ListRow, 
+  ListTerm, 
   ListDescription,
 } from "./styled";
 import { Header } from "../Header";
+import { Genres } from "../Genres";
+import { Rating } from "../Rating";
 import { OptionalText } from "../OptionalText";
 
 export const Details = () => {
   return (
     <Container>
-      <Image />
+      <Image movie/>
       <Info>
-        <Header details>Liu Yifei</Header>
-        <List>
-          <ListTerm>Date of birth:</ListTerm>
-          <ListDescription>25.08.1987</ListDescription>
-          <ListTerm nextItem>Place of birth:</ListTerm>
-          <ListDescription nextItem>Wuhan, Hubei, China</ListDescription>
+        <Header details>Mulan</Header>
+        <Year>2020</Year>
+        <List movie>
+          <ListRow>
+            <ListTerm movie>Production: </ListTerm>
+            <ListDescription>China, United States of America</ListDescription>
+          </ListRow>
+          <ListRow nextItem>
+            <ListTerm movie>Release date: </ListTerm>
+            <ListDescription>24.10.2020</ListDescription>
+          </ListRow>
         </List>
+        <Genres details/>
+        <Rating details/>
       </Info>
       <Description>
-        <OptionalText details>
-          Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8
-          and was trained in singing, dancing and the piano. Moving to the United States at 10 with her mother, Liu
-          lived there for four years.
+        <OptionalText description>
+          A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a
+          male warrior in order to save her father. A young Chinese maiden disguises herself as a male warrior in order
+          to save her father.
         </OptionalText>
       </Description>
     </Container>
