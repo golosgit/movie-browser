@@ -4,21 +4,35 @@ import { Text } from "../../common/Text";
 import { OptionalText } from "../../common/OptionalText";
 import { Genres } from "../../common/Genres";
 import { Rating } from "../../common/Rating";
+import { imageUrl, image } from "../../api";
 
-export const MovieList = ({ title }) => {
+export const MovieList = ({ title, movieList, hideMaxVotes, listView }) => {
   return (
     <>
       <Header>{title}</Header>
       <MovieListContaier>
-        <MovieListTile>
-          <MovieListImage />
+        {movieList?.map((movie) =>  (      
+        <MovieListTile key={movie?.id}>
+          {movie?.poster_path ? 
+            <MovieListImage src={`${imageUrl}${image.moviePoster}${movie?.poster_path}`} /> :
+            <MovieListImage />
+          }
           <MovieInfo>
-            <Text movie>Mulan</Text>
-            <OptionalText movie>2020</OptionalText>
+            <Text movie>{movie?.title}</Text>
+            {movie?.release_date ? 
+              <OptionalText movie>{movie?.release_date.slice(0, 4)}</OptionalText> :
+              ""
+            }
             <Genres />
-            <Rating />
+            <Rating 
+              average={movie.vote_average}
+              hideMaxVotes={hideMaxVotes}
+              totalVotes={movie.vote_count}
+              listView={listView}
+            />
           </MovieInfo>
         </MovieListTile>
+        ))}
       </MovieListContaier>
     </>
   );

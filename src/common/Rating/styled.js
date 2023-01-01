@@ -12,6 +12,10 @@ export const Container = styled.div`
     align-items: flex-start;
   }
 
+  ${({ list }) => list && css`
+    height: 100%;
+  `}
+
   ${({ details }) => details && css`
     margin-top: 24px;
     gap: 8px;

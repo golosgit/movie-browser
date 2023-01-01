@@ -1,18 +1,22 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchMovieList } from "./movieListPageSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovieList, selectMovieList } from "./movieListPageSlice";
 import { MovieList } from "../../common/MovieList";
 
 export const MovieListPage = () => {
   const dispatch = useDispatch();
+  const movieList = useSelector(selectMovieList);
 
   useEffect(() => {
     dispatch(fetchMovieList());
-  });
+  }, [dispatch]);
 
   return (
-    <MovieList>
-
-    </MovieList>
+    <MovieList
+      title="Popular movies"
+      movieList={movieList}
+      hideMaxVotes
+      listView
+    />
   );
 };

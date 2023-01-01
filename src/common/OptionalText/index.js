@@ -26,6 +26,10 @@ export const OptionalText = styled.p`
     }
   `}
 
+  ${({ hidden }) => hidden && css`
+    display: none;
+  `}
+
   ${({ details }) => details && css`
     font-size: 14px;
     line-height: 1.2;

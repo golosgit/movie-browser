@@ -1,13 +1,21 @@
 import { Container, StyledIcon, Evaluation } from "./styled";
 import { OptionalText } from "../OptionalText";
 
-export const Rating = ({ details }) => {
+export const Rating = ({ average, hideMaxVotes, totalVotes, listView }) => {
   return (
-    <Container details={details}>
-      <StyledIcon details={details}/>
-      <Evaluation details={details}>7.8</Evaluation>
-      <OptionalText details={details} max>/ 10</OptionalText>
-      <OptionalText details={details} votes>335 votes</OptionalText>
+    <Container
+    list={listView ? 1 : 0}>
+      <StyledIcon/>
+      <Evaluation>{average.toFixed(1)}</Evaluation>
+      <OptionalText 
+        list={listView ? 1 : 0}
+        hidden={hideMaxVotes}>
+          / 10
+      </OptionalText>
+      <OptionalText 
+        list={listView ? 1 : 0}>
+          {totalVotes} votes
+      </OptionalText>
     </Container>
   );
 };
