@@ -1,12 +1,12 @@
 import { Container, GenreTile } from "./styled";
 
-export const Genres = ({ details }) => {
+export const Genres = ({ details, genres, genreId }) => {
+  console.log(genreId);
   return (
     <Container details={details}>
-      <GenreTile>Action</GenreTile>
-      <GenreTile>Adventure</GenreTile>
-      <GenreTile>Drama</GenreTile>
-      <GenreTile>Comedy</GenreTile>
+      {genreId?.map((id) => (
+        <GenreTile key={id}>{genres.find(genre => genre.id === id).name}</GenreTile>
+      ))}
     </Container>
   );
 };

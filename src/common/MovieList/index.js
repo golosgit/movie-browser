@@ -6,7 +6,7 @@ import { Genres } from "../../common/Genres";
 import { Rating } from "../../common/Rating";
 import { imageUrl, image } from "../../features/api";
 
-export const MovieList = ({ title, movieList, hideMaxVotes, listView }) => {
+export const MovieList = ({ title, movieList, hideMaxVotes, listView, genres }) => {
   return (
     <>
       <Header>{title}</Header>
@@ -23,7 +23,13 @@ export const MovieList = ({ title, movieList, hideMaxVotes, listView }) => {
               <OptionalText movie>{movie?.release_date.slice(0, 4)}</OptionalText> :
               ""
             }
-            <Genres />
+            {genres ? 
+              <Genres 
+                genres={genres}
+                genreId={movie?.genre_ids}  
+              /> :
+              ""
+            }            
             <Rating 
               average={movie.vote_average}
               hideMaxVotes={hideMaxVotes}

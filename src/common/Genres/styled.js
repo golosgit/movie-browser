@@ -5,11 +5,7 @@ export const Container = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 8px;
-  gap: 16px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
-    gap: 8px;
-  }
+  gap: 8px;
 
   ${({ details }) => details && css`
     margin-top: 24px;
