@@ -4,7 +4,7 @@ import { Text } from "../../common/Text";
 import { OptionalText } from "../../common/OptionalText";
 import { Genres } from "../../common/Genres";
 import { Rating } from "../../common/Rating";
-import { imageUrl, image } from "../../api";
+import { imageUrl, image } from "../../features/api";
 
 export const MovieList = ({ title, movieList, hideMaxVotes, listView }) => {
   return (
