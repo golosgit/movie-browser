@@ -3,8 +3,10 @@ export const baseUrl = "https://api.themoviedb.org/3";
 
 export const popularMovies = "/movie/popular";
 export const genres = "/genre/movie/list";
+export const popularPeople = "/person/popular";
 
 export const imageUrl = "https://image.tmdb.org/t/p";
 export const image = {
+  peopleList: "/w400",
   moviePoster: "/w500",
 }
