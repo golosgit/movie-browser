@@ -6,7 +6,7 @@ export const Text = styled.p`
   line-height: 1.3;
   margin: 16px 0 0 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     font-size: 14px;
   }
 
@@ -27,7 +27,7 @@ export const Text = styled.p`
   `}
 
   ${({ list }) => list && css`
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
       margin-top: 8px;
     }
   `}

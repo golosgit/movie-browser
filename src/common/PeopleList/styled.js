@@ -21,7 +21,7 @@ export const PersonTile = styled.div`
   border-radius: 5px;
   text-align: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     padding: 8px;
   }
 `;
