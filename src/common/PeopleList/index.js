@@ -12,7 +12,7 @@ export const PeopleList = ({ title, peopleList, listView, hideJob }) => {
         {peopleList?.map((person) => (
           <PersonTile key={person.id}>
             {person?.profile_path ?
-              <PersonImage src={`${imageUrl}${image.peopleList}${person?.profile_path}`}/> :
+              <PersonImage src={`${imageUrl}${image.w400}${person?.profile_path}`}/> :
               <PersonImage />
             }
             <Text 

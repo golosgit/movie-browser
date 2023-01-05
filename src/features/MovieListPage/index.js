@@ -23,7 +23,7 @@ export const MovieListPage = () => {
       title="Popular movies"
       movieList={movieList}
       hideMaxVotes
-      listView
+      listView="true"
       genres={genres}
     />
   );

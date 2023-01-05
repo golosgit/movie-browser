@@ -14,7 +14,7 @@ export const MovieList = ({ title, movieList, hideMaxVotes, listView, genres }) 
         {movieList?.map((movie) =>  (      
         <MovieListTile key={movie?.id}>
           {movie?.poster_path ? 
-            <MovieListImage src={`${imageUrl}${image.moviePoster}${movie?.poster_path}`} /> :
+            <MovieListImage src={`${imageUrl}${image.w500}${movie?.poster_path}`} /> :
             <MovieListImage />
           }
           <MovieInfo>
