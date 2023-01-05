@@ -9,6 +9,7 @@ export const credits = "/credits";
 
 export const imageUrl = "https://image.tmdb.org/t/p";
 export const image = {
-  peopleList: "/w400",
-  moviePoster: "/w500",
+  w300: "/w300",
+  w400: "/w400",
+  w500: "/w500",
 }

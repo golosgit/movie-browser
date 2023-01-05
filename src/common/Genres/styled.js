@@ -9,6 +9,7 @@ export const Container = styled.div`
 
   ${({ details }) => details && css`
     margin-top: 24px;
+    gap: 16px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
       margin-top: 16px;
@@ -16,6 +17,7 @@ export const Container = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
       margin-top: 8px;
+      gap: 8px;
     }
   `}
 `;

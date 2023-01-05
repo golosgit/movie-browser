@@ -1,20 +1,26 @@
 import { Container, StyledIcon, Evaluation } from "./styled";
 import { OptionalText } from "../OptionalText";
 
-export const Rating = ({ average, hideMaxVotes, totalVotes, listView }) => {
+export const Rating = ({ average, hideMaxVotes, totalVotes, listView, details }) => {
   return (
     <Container
-    list={listView ? 1 : 0}>
-      <StyledIcon/>
-      <Evaluation>{average.toFixed(1)}</Evaluation>
+      list={listView}
+      details={details}
+    >
+      <StyledIcon details={details}/>
+      <Evaluation details={details}>{average?.toFixed(1)}</Evaluation>
       <OptionalText 
-        list={listView ? 1 : 0}
-        hidden={hideMaxVotes}>
-          / 10
+        list={listView}
+        hidden={hideMaxVotes}
+        details={details}
+      >
+        / 10
       </OptionalText>
       <OptionalText 
-        list={listView ? 1 : 0}>
-          {totalVotes} votes
+        list={listView}
+        details={details}
+      >
+        {totalVotes} votes
       </OptionalText>
     </Container>
   );
