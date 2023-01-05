@@ -41,12 +41,12 @@ export const Image = styled.img`
   margin-right: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletVerticalMax}px) {
-    width: 300px;
+    width: 250px;
     margin-right: 24px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    width: 199px;
+    width: 160px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
@@ -60,11 +60,11 @@ export const Image = styled.img`
     background-image: url(${noMovieImage});
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletVerticalMax}px) {
-      width: 260px;
+      width: 230px;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-      width: 200px;
+      width: 150px;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {

@@ -26,7 +26,7 @@ export const Container = styled.div`
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
-      margin-top: 8px;
+      margin-top: 12px;
     }
   `}
 `;

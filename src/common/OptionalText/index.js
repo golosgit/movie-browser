@@ -52,7 +52,7 @@ export const OptionalText = styled.p`
       }
     `}
 
-    ${({ max }) => max && css`
+    ${({ hiddenMax }) => hiddenMax && css`
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
         display: none;
       }
