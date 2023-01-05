@@ -5,7 +5,9 @@ export const popularMovies = "/movie/popular";
 export const genres = "/genre/movie/list";
 export const popularPeople = "/person/popular";
 export const movieDetails = "/movie/";
-export const credits = "/credits";
+export const movieDetailsCredits = "/credits";
+export const personDetails = "/person/";
+export const personDetailsCredits = "/movie_credits";
 
 export const imageUrl = "https://image.tmdb.org/t/p";
 export const image = {

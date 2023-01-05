@@ -3,6 +3,7 @@ import { watchFetchMovieListHandler } from "./features/MovieListPage/movieListPa
 import { watchFetchGenresHandler } from "./features/Genres/genresSaga";
 import { watchFetchPeopleListHandler } from "./features/PeopleListPage/peopleListPageSaga";
 import { watchFetchMovieDetailsHandler } from "./features/MovieDetailsPage/movieDetailsPageSaga";
+import { watchFetchPersonDetailsHandler } from "./features/PersonDetailsPage/personDetailsPageSaga";
 
 export default function* saga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* saga() {
     watchFetchGenresHandler(),
     watchFetchPeopleListHandler(),
     watchFetchMovieDetailsHandler(),
-  ])
-};
+    watchFetchPersonDetailsHandler(),
+  ]);
+}
