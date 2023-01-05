@@ -11,7 +11,7 @@ export const Rating = ({ average, hideMaxVotes, totalVotes, listView, details })
       <Evaluation details={details}>{average?.toFixed(1)}</Evaluation>
       <OptionalText 
         list={listView}
-        hidden={hideMaxVotes}
+        hiddenMax={hideMaxVotes}
         details={details}
       >
         / 10

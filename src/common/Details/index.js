@@ -1,14 +1,4 @@
-import { 
-  Container, 
-  Image, 
-  Info, 
-  Description,
-  Year, 
-  List, 
-  ListRow, 
-  ListTerm, 
-  ListDescription,
-} from "./styled";
+import { Container, Image, Info, Description, Year, List, ListRow, ListTerm, ListDescription } from "./styled";
 import { Header } from "../Header";
 import { Genres } from "../Genres";
 import { Rating } from "../Rating";
@@ -16,49 +6,52 @@ import { OptionalText } from "../OptionalText";
 import { imageUrl, image } from "../../features/api";
 import { changeDateFormat } from "../../features/changeDateFormat";
 
-export const Details = ({ movie, movieDetails }) => {
-  const date = movieDetails?.release_date;
+export const Details = ({ movie, movieDetails, person, personDetails }) => {
+  const picture = movieDetails?.poster_path || personDetails?.profile_path;
+  const place = movieDetails?.production_countries.map((country) => country.name).join(", ") || personDetails?.place_of_birth || "N/A";
+  const date = movieDetails?.release_date || personDetails?.birthday;
+
+  const formattedDate = date ? changeDateFormat(date) : "N/A";
+
   return (
     <Container>
-      {movieDetails?.poster_path ?
-        <Image 
-          movie={movie}
-          src={`${imageUrl}${image.w300}${movieDetails?.poster_path}`}
-        /> :
-        <Image 
-          movie={movie}
-        />
+      {picture ? 
+        <Image movie={movie} src={`${imageUrl}${image.w400}${picture}`} /> :
+        <Image movie={movie} />
       }
       <Info>
-        <Header details>{movieDetails?.title}</Header>
-        <Year>{movieDetails?.release_date.slice(0, 4)}</Year>
-        <List movie>
+        <Header details>{movieDetails?.title || personDetails?.name}</Header>
+        {movieDetails?.release_date ? 
+          <Year>{movieDetails?.release_date.slice(0, 4)}</Year> : 
+          ""
+        }
+        <List movie={movie}>
           <ListRow>
-            <ListTerm movie>Production: </ListTerm>
+            <ListTerm movie={movie}>
+              {movie ? "Production:" : "Date of birth:"}
+            </ListTerm>
             <ListDescription>
-              {movieDetails?.production_countries ?
-                movieDetails?.production_countries.map((country) => country.name).join(", ") :
-                "N/A"
-              }
-            </ListDescription>
+              {movie ? place : formattedDate}</ListDescription>
           </ListRow>
           <ListRow nextItem>
-            <ListTerm movie>Release date: </ListTerm>
-            <ListDescription>{date ? changeDateFormat(date) : "N/A"}</ListDescription>
+            <ListTerm movie={movie}>
+              {movie ? "Release date:" : "Place of birth:"}
+            </ListTerm>
+            <ListDescription>
+              {movie ? formattedDate : place}</ListDescription>
           </ListRow>
         </List>
-        <Genres 
-          details
-          genres={movieDetails?.genres}
-        />
-        <Rating 
-          details="true"
-          average={movieDetails?.vote_average}
-          totalVotes={movieDetails?.vote_count}
-        />
+        {movie ? 
+          <Genres details="true" genres={movieDetails?.genres} /> : 
+          ""
+        }
+        {movie ? 
+          <Rating details="true" average={movieDetails?.vote_average} totalVotes={movieDetails?.vote_count} hideMaxVotes /> :
+          ""
+        }
       </Info>
       <Description>
-        <OptionalText description>{movieDetails?.overview}</OptionalText>
+        <OptionalText description>{movieDetails?.overview || personDetails?.biography}</OptionalText>
       </Description>
     </Container>
   );
