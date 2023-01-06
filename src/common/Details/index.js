@@ -6,7 +6,7 @@ import { OptionalText } from "../OptionalText";
 import { imageUrl, image } from "../../features/api";
 import { changeDateFormat } from "../../features/changeDateFormat";
 
-export const Details = ({ movie, movieDetails, person, personDetails }) => {
+export const Details = ({ movie, movieDetails, personDetails }) => {
   const picture = movieDetails?.poster_path || personDetails?.profile_path;
   const place = movieDetails?.production_countries.map((country) => country.name).join(", ") || personDetails?.place_of_birth || "N/A";
   const date = movieDetails?.release_date || personDetails?.birthday;

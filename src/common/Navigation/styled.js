@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as Icon } from "../images/video.svg";
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.color.woodsmoke};
+  background-color: ${({ theme }) => theme.color.black};
 `;
 
 export const NavigationWrapper = styled.div`
