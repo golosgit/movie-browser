@@ -14,4 +14,5 @@ export const image = {
   w300: "/w300",
   w400: "/w400",
   w500: "/w500",
+  backdrop: "/w1280",
 }
