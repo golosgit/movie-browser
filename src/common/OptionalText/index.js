@@ -28,6 +28,12 @@ export const OptionalText = styled.p`
 
   ${({ hidden }) => hidden && css`
     display: none;
+
+    ${({ backdrop }) => backdrop && css`
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+        display: unset;
+      }
+  `}
   `}
 
   ${({ details }) => details && css`
@@ -72,5 +78,30 @@ export const OptionalText = styled.p`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
       font-size: 14px;
     }
+  `}
+
+  ${({ backdrop }) => backdrop && css`
+    color: ${({ theme }) => theme.color.white};
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      font-size: 10px;
+      margin: 0;
+      transform: translateY(4px);
+
+      ${({ votes }) => votes && css`
+        margin-left: 4px;
+      `}
+    }
+  `}
+
+  ${({ secondLine }) => secondLine && css`
+    display: none;
+  `}
+
+  ${({ votes }) => votes && css`
+    margin: 0;
   `}
 `;

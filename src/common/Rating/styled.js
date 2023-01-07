@@ -29,6 +29,30 @@ export const Container = styled.div`
       margin-top: 12px;
     }
   `}
+
+  ${({ backdrop }) => backdrop && css`
+    margin-top: 24px;
+    align-items: center;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobilelMax}px) {
+      margin-top: 16px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      gap: 4px;
+      margin-top: 4px;
+    }
+  `}
+
+  ${({ secondLine }) => secondLine && css`
+    margin-top: 16px;
+    align-items: center;
+    gap: 0;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      display: none;
+    }
+  `}
 `;
 
 export const StyledIcon = styled(Star)`
@@ -44,6 +68,23 @@ export const StyledIcon = styled(Star)`
   ${({ details }) => details && css`
     transform: translateY(-2px);
   `}
+
+  ${({ backdrop }) => backdrop && css`
+    width: 40px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.tabletVerticalMax}px) {
+      width: 32px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      width: 16px;
+      transform: translateY(0px);
+    }
+  `}
+
+  ${({ secondLine }) => secondLine && css`
+    display: none;
+  `}
 `;
 
 export const Evaluation = styled.p`
@@ -58,8 +99,18 @@ export const Evaluation = styled.p`
   }
 
   ${({ details }) => details && css`
-    font-weight: 600;
     font-size: 22px;
     line-height: 1.3;
+  `}
+
+  ${({ backdrop }) => backdrop && css`
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.3;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      font-weight: 600;
+      font-size: 14px;
+    }
   `}
 `;

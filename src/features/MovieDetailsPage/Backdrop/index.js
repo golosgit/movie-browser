@@ -1,11 +1,26 @@
-import { Container, Poster } from "./styled";
+import { Container, Poster, Title } from "./styled";
+import { Rating } from "../../../common/Rating";
+import { imageUrl, image, apiKey } from "../../api";
 
-export const Backdrop = image => {
-  console.log(image.image);
-
+export const Backdrop = ({ movieDetails }) => {
   return (
     <Container>
-      <Poster image={image.image} />
+      <Poster picture={`${imageUrl}${image.backdrop}${movieDetails?.backdrop_path}${apiKey}`}>
+        <Title>{movieDetails?.title}</Title>
+        <Rating 
+          average={movieDetails?.vote_average}
+          totalVotes={movieDetails?.vote_count}
+          backdrop="true"
+          hidden="true"
+          votes="true"
+        />
+        <Rating 
+          totalVotes={movieDetails?.vote_count}
+          backdrop="true"
+          votes="true"
+          secondLine="true"
+        />
+      </Poster>
     </Container>
   );
 };
