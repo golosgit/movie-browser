@@ -4,23 +4,24 @@ import { Text } from "../../common/Text";
 import { OptionalText } from "../../common/OptionalText";
 import { imageUrl, image } from "../../features/api";
 
-export const PeopleList = ({ title, peopleList, listView, hideJob }) => {
+export const PeopleList = ({ title, peopleList, listView, credits }) => {
   return (
     <>
-      <Header>{title}</Header>
-      <PeopleListContainer>
+      <Header credits={credits}>{title}</Header>
+      <PeopleListContainer credits={credits}>
         {peopleList?.map((person) => (
-          <PersonTile key={person.id}>
+          <PersonTile key={`${person.id}-${person.character || person.job}`}>
             {person?.profile_path ?
               <PersonImage src={`${imageUrl}${image.w400}${person?.profile_path}`}/> :
               <PersonImage />
             }
-            <Text 
-              list={listView ? 1 : 0}
-            >
-                {person?.name}
+            <Text list={listView}>
+              {person?.name}
             </Text>
-            <OptionalText person={person} hidden={hideJob}>Mulan</OptionalText>
+            {credits ? 
+              <OptionalText person={person}>{person?.character || person?.job}</OptionalText> :
+              ""  
+            }
           </PersonTile>
         ))}
       </PeopleListContainer>

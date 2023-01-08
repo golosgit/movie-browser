@@ -34,4 +34,17 @@ export const Header = styled.h2`
       font-size: 14px;
     }
   `}
+
+  ${({ credits }) => credits && css`
+    margin-top: 64px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      margin-top: 40px;
+      font-size: 24px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      margin-top: 24px;
+    }
+  `}
 `;

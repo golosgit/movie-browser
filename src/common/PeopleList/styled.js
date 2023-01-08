@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import noImage from "../images/profile.svg";
 
 export const PeopleListContainer = styled.div`
@@ -12,6 +12,18 @@ export const PeopleListContainer = styled.div`
     grid-gap: 16px;
     grid-template-columns: 1fr 1fr;
   }
+
+  ${({ credits }) => credits && css`
+    margin-top: 32px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      margin-top: 20px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+      margin-top: 16px;
+    }
+  `}
 `;
 
 export const PersonTile = styled.div`

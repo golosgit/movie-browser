@@ -29,5 +29,7 @@ const selectMovieDetailsState = state => state.movieDetails;
 export const selectMovieDetails = state => selectMovieDetailsState(state).movieDetails;
 export const selectStatus = state => selectMovieDetailsState(state).status;
 export const selectMovieId = state => selectMovieDetailsState(state).movieId;
+export const selectCast = state => selectMovieDetailsState(state).creditsCast;
+export const selectCrew = state => selectMovieDetailsState(state).creditsCrew;
 
 export default movieDetailsSlice.reducer;

@@ -82,7 +82,7 @@ export const StyledIcon = styled(Star)`
     }
   `}
 
-  ${({ secondLine }) => secondLine && css`
+  ${({ hidden }) => hidden && css`
     display: none;
   `}
 `;

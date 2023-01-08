@@ -11,14 +11,14 @@ export const Backdrop = ({ movieDetails }) => {
           average={movieDetails?.vote_average}
           totalVotes={movieDetails?.vote_count}
           backdrop="true"
-          hidden="true"
-          votes="true"
+          hidden={true}
+          votes={true}
         />
         <Rating 
           totalVotes={movieDetails?.vote_count}
           backdrop="true"
-          votes="true"
-          secondLine="true"
+          votes={true}
+          secondLine={true}
         />
       </Poster>
     </Container>
