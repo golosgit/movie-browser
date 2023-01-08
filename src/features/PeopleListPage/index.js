@@ -17,7 +17,6 @@ export const PeopleListPage = () => {
       title="Popular movies"
       peopleList={peopleList}
       listView
-      hideJob
     />
   );
 };
