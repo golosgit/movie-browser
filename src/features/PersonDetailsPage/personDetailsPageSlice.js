@@ -29,5 +29,7 @@ const selectPersonDetailsState = state => state.personDetails;
 export const selectPersonDetails = state => selectPersonDetailsState(state).personDetails;
 export const selectStatus = state => selectPersonDetailsState(state).status;
 export const selectPersonId = state => selectPersonDetailsState(state).personId;
+export const selectCast = state => selectPersonDetailsState(state).creditsCast;
+export const selectCrew = state => selectPersonDetailsState(state).creditsCrew;
 
 export default personDetailsSlice.reducer;
