@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { MainWrapper } from "../../common/MainWrapper";
 import { fetchMovieList, selectMovieList } from "./movieListPageSlice";
 import { MovieList } from "../../common/MovieList";
 import { selectGenres, fetchGenres } from "../../features/Genres/genresSlice";
@@ -19,12 +20,14 @@ export const MovieListPage = () => {
   }, [dispatch]);
 
   return (
-    <MovieList
-      title="Popular movies"
-      movieList={movieList}
-      hideMaxVotes
-      listView="true"
-      genres={genres}
-    />
+    <MainWrapper>
+      <MovieList
+        title="Popular movies"
+        movieList={movieList}
+        hideMaxVotes
+        listView="true"
+        genres={genres}
+      />
+    </MainWrapper>
   );
 };

@@ -32,9 +32,15 @@ export const PersonTile = styled.div`
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.heather};
   border-radius: 5px;
   text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     padding: 8px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 `;
 

@@ -108,6 +108,7 @@ export const StyledLink = styled.a`
   cursor: pointer;
   padding: 8px 24px;
   border: 1px solid transparent;
+  transition: border 0.3s;
 
   &:hover, &.active {
     border: 1px solid ${({ theme }) => theme.color.white};

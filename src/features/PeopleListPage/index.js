@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { MainWrapper } from "../../common/MainWrapper"
 import { PeopleList } from "../../common/PeopleList";
 import { fetchPeopleList, selectPeopleList } from "./peopleListPageSlice";
 
@@ -13,10 +14,12 @@ export const PeopleListPage = () => {
   }, [dispatch]);
 
   return (
-    <PeopleList
-      title="Popular movies"
-      peopleList={peopleList}
-      listView
-    />
+    <MainWrapper>
+      <PeopleList
+        title="Popular movies"
+        peopleList={peopleList}
+        listView
+      />
+    </MainWrapper>
   );
 };

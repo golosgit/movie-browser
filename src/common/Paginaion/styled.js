@@ -33,15 +33,24 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  transition: filter 0.4s;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     gap: 4px;
     padding: 8px 12px;
   }
 
+  &:hover {
+    filter: brightness(90%);
+  }
+
   &:disabled {
     background-color: ${({ theme }) => theme.color.mystic};
     color: ${({ theme }) => theme.color.woodsmoke};
+    cursor: not-allowed;
+    transform: unset;
+    filter: unset;
   }
 `;
 

@@ -26,9 +26,15 @@ export const MovieListTile = styled.div`
   border-radius: 5px;
   display: grid;
   grid-template-rows: auto 1fr;
+  cursor: pointer;
+  transition: transform 0.3s;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     grid-template-columns: auto 1fr;
+  }
+
+  &:hover {
+    transform: scale(1.04);
   }
 `;
 
