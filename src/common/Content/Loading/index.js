@@ -1,13 +1,14 @@
-import { Header } from "../Header";
+import { MainWrapper } from "../../MainWrapper";
+import { Header } from "../../Header";
 import { Wrapper, StyledIcon } from "./styled";
 
-export const Loading = () => {
+export const Loading = ({ message }) => {
   return (
-    <>
-      <Header>Search results for "Mulan"</Header>
-      <Wrapper>
+    <MainWrapper>
+      <Header>{message}</Header>
+      <Wrapper biggerMargin={!message}>
         <StyledIcon />
       </Wrapper>
-    </>
+    </MainWrapper>
   );
 };
