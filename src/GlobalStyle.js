@@ -15,5 +15,6 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.color.woodsmoke};
     font-family: 'Poppins', sans-serif;
     overflow-wrap: anywhere;
+    overflow-y: scroll;
   }
 `;
