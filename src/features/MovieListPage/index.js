@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigation } from "../../common/Navigation";
 import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper";
-import { fetchMovieList, selectMovieList, selectStatus } from "./movieListPageSlice";
 import { MovieList } from "../../common/MovieList";
+import { Pagination } from "../../common/Paginaion";
+import { fetchMovieList, selectMovieList, selectStatus } from "./movieListPageSlice";
 import { selectGenres, fetchGenres } from "../../features/Genres/genresSlice";
 
 export const MovieListPage = () => {
@@ -22,6 +24,8 @@ export const MovieListPage = () => {
   }, [dispatch]);
 
   return (
+    <>
+    <Navigation />
     <Content status={status}>
       <MainWrapper>
         <MovieList
@@ -31,7 +35,9 @@ export const MovieListPage = () => {
           listView="true"
           genres={genres}
         />
+      <Pagination />
       </MainWrapper>
     </Content>
+    </>
   );
 };

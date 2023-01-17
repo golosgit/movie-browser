@@ -5,18 +5,22 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin: 40px 0 100px;
+  margin: 40px 0;
+  padding-bottom: 100px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     gap: 8px;
     margin: 32px 0;
+    padding-bottom: 32px;
   }
 
   ${({ person }) => person && css`
-    margin: 56px 0 124px;
+    margin: 56px 0;
+    padding-bottom: 124px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
-      margin: 50px 0 40px;
+      margin: 50px 0;
+      padding-bottom: 40px;
   }
   `}
 `;
