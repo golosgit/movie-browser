@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigation } from "../../common/Navigation"; 
 import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper"
 import { PeopleList } from "../../common/PeopleList";
@@ -15,14 +16,17 @@ export const PeopleListPage = () => {
   }, [dispatch]);
 
   return (
-    <Content status={status}>
-      <MainWrapper>
-        <PeopleList
-          title="Popular movies"
-          peopleList={peopleList}
-          listView="true"
-        />
-      </MainWrapper>
-    </Content>
+    <>
+    <Navigation />
+      <Content status={status}>
+        <MainWrapper>
+          <PeopleList
+            title="Popular movies"
+            peopleList={peopleList}
+            listView="true"
+          />
+        </MainWrapper>
+      </Content>
+    </>
   );
 };

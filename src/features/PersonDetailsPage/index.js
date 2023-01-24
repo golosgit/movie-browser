@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { Navigation } from "../../common/Navigation";
 import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper";
 import { Details } from "../../common/Details";
@@ -21,25 +22,28 @@ export const PersonDetailsPage = () => {
   }, [dispatch, id]);
 
   return (
-    <Content status={status}>
-      <MainWrapper>
-        <Details 
-          personDetails={personDetails}
-          person="true"
-        />
-        <MovieList 
-          title={`Movies - cast${` (${cast?.length})` || ``}`}
-          movieList={cast}
-          credits="true"
-          listView="true"
-        />
-        <MovieList 
-          title={`Movies - crew${` (${crew?.length})` || ``}`}
-          movieList={crew}
-          credits="true"
-          listView="true"
-        />
-      </MainWrapper>
-    </Content>
+    <>
+    <Navigation />
+      <Content status={status}>
+        <MainWrapper>
+          <Details 
+            personDetails={personDetails}
+            person="true"
+          />
+          <MovieList 
+            title={`Movies - cast${` (${cast?.length})` || ``}`}
+            movieList={cast}
+            credits="true"
+            listView="true"
+          />
+          <MovieList 
+            title={`Movies - crew${` (${crew?.length})` || ``}`}
+            movieList={crew}
+            credits="true"
+            listView="true"
+          />
+        </MainWrapper>
+      </Content>
+    </>
   );
 };

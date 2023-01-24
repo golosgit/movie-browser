@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { Navigation } from "../../common/Navigation";
 import { Content } from "../../common/Content";
 import { Details } from "../../common/Details";
 import { Backdrop } from "./Backdrop";
@@ -22,29 +23,32 @@ export const MovieDetailsPage = () => {
   }, [dispatch, id]);
 
   return (
-    <Content status={status}>
-      {movieDetails?.backdrop_path ? 
-        <Backdrop movieDetails={movieDetails} /> :
-        ""
-      }
-      <MainWrapper>
-        <Details
-          movieDetails={movieDetails}
-          movie="true"
-        />
-        <PeopleList
-          title="Cast"
-          peopleList={cast}
-          listView="true"
-          credits="true"
-        />
-        <PeopleList
-          title="Crew"
-          peopleList={crew}
-          listView="true"
-          credits="true"
-        />
-      </MainWrapper>
-    </Content>
+    <>
+      <Navigation />
+      <Content status={status}>
+        {movieDetails?.backdrop_path ? 
+          <Backdrop movieDetails={movieDetails} /> :
+          ""
+        }
+        <MainWrapper>
+          <Details
+            movieDetails={movieDetails}
+            movie="true"
+          />
+          <PeopleList
+            title="Cast"
+            peopleList={cast}
+            listView="true"
+            credits="true"
+          />
+          <PeopleList
+            title="Crew"
+            peopleList={crew}
+            listView="true"
+            credits="true"
+          />
+        </MainWrapper>
+      </Content>
+    </>
   );
 };

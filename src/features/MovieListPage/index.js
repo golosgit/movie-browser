@@ -25,19 +25,19 @@ export const MovieListPage = () => {
 
   return (
     <>
-    <Navigation />
-    <Content status={status}>
-      <MainWrapper>
-        <MovieList
-          title="Popular movies"
-          movieList={movieList}
-          hideMaxVotes
-          listView="true"
-          genres={genres}
-        />
-      <Pagination />
-      </MainWrapper>
-    </Content>
+      <Navigation />
+      <Content status={status}>
+        <MainWrapper>
+          <MovieList
+            title="Popular movies"
+            movieList={movieList}
+            hideMaxVotes
+            listView="true"
+            genres={genres}
+          />
+        <Pagination />
+        </MainWrapper>
+      </Content>
     </>
   );
 };
