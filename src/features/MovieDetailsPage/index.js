@@ -19,7 +19,7 @@ export const MovieDetailsPage = () => {
 
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <Content status={status}>

@@ -18,7 +18,7 @@ export const PersonDetailsPage = () => {
 
   useEffect(() => {
     dispatch(fetchPersonDetails(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <Content status={status}>
