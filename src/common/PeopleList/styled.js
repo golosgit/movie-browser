@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 import noImage from "../images/profile.svg";
 
 export const PeopleListContainer = styled.div`
@@ -58,4 +59,11 @@ export const PersonImage = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     min-width: 120px;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  color: unset;
 `;

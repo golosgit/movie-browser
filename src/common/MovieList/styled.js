@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import noImage from "../images/video.svg";
 
 export const MovieListContaier = styled.div`
@@ -63,4 +64,11 @@ export const MovieListImage = styled.img`
 export const MovieInfo = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const StyledLink = styled(Link)`
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  color: unset;
 `;

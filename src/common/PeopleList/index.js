@@ -1,4 +1,4 @@
-import { PeopleListContainer, PersonTile, PersonImage } from "./styled";
+import { PeopleListContainer, PersonTile, PersonImage, StyledLink } from "./styled";
 import { Header } from "../../common/Header";
 import { Text } from "../../common/Text";
 import { OptionalText } from "../../common/OptionalText";
@@ -10,19 +10,21 @@ export const PeopleList = ({ title, peopleList, listView, credits }) => {
       <Header credits={credits}>{title}</Header>
       <PeopleListContainer credits={credits}>
         {peopleList?.map((person) => (
-          <PersonTile key={`${person.id}-${person.character || person.job}`}>
-            {person?.profile_path ?
-              <PersonImage src={`${imageUrl}${image.w400}${person?.profile_path}`}/> :
-              <PersonImage />
-            }
-            <Text list={listView}>
-              {person?.name}
-            </Text>
-            {credits ? 
-              <OptionalText person={person}>{person?.character || person?.job}</OptionalText> :
-              ""  
-            }
-          </PersonTile>
+          <StyledLink key={`${person.id}-${person.character || person.job}`} to={`/people/person-details/${person?.id}`}>
+            <PersonTile>
+              {person?.profile_path ?
+                <PersonImage src={`${imageUrl}${image.w400}${person?.profile_path}`}/> :
+                <PersonImage />
+              }
+              <Text list={listView}>
+                {person?.name}
+              </Text>
+              {credits ? 
+                <OptionalText person={person}>{person?.character || person?.job}</OptionalText> :
+                ""  
+              }
+            </PersonTile>
+          </StyledLink>
         ))}
       </PeopleListContainer>
     </>

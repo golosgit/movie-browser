@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { Content } from "../../common/Content";
 import { Details } from "../../common/Details";
 import { Backdrop } from "./Backdrop";
@@ -14,9 +15,10 @@ export const MovieDetailsPage = () => {
   const cast = useSelector(selectCast);
   const crew = useSelector(selectCrew);
   const status = useSelector(selectStatus);
+  const { id } = useParams();
 
   useEffect(() => {
-    dispatch(fetchMovieDetails(411));
+    dispatch(fetchMovieDetails(id));
   }, [dispatch]);
 
   return (

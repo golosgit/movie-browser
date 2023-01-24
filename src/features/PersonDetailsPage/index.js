@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper";
 import { Details } from "../../common/Details";
@@ -13,9 +14,10 @@ export const PersonDetailsPage = () => {
   const cast = useSelector(selectCast);
   const crew = useSelector(selectCrew);
   const status = useSelector(selectStatus);
+  const { id } = useParams();
 
   useEffect(() => {
-    dispatch(fetchPersonDetails(224513));
+    dispatch(fetchPersonDetails(id));
   }, [dispatch]);
 
   return (
