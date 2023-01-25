@@ -9,18 +9,19 @@ import {
   StyledLink,
   SearchContainer,
 } from "./styled";
+import { toMovieList, toPeopleList } from "../../routes";
 
 export const Navigation = () => {
   return (
     <Container>
       <NavigationWrapper>
-        <Logo>
+        <Logo to="/">
           <NavigationIcon />
           <Title>Movies browser</Title>
         </Logo>
         <LinkWrapper>
-          <StyledLink>Movies</StyledLink>
-          <StyledLink>People</StyledLink>
+          <StyledLink to={toMovieList()}>Movies</StyledLink>
+          <StyledLink to={toPeopleList()}>People</StyledLink>
         </LinkWrapper>
         <SearchContainer>
           <Search />

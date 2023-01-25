@@ -17,6 +17,10 @@ export const Text = styled.p`
     text-align: center;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      font-size: 18px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
       margin-top: 12px;
       width: 280px;
     }
