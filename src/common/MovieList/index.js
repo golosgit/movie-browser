@@ -12,7 +12,7 @@ export const MovieList = ({ title, movieList, hideMaxVotes, listView, genres, cr
       <Header credits={credits}>{title}</Header>
       <MovieListContaier>
         {movieList?.map((movie) =>  (  
-          <StyledLink key={`${movie?.id}-${movie?.popularity}`} to={`/movies/movie-details/${movie?.id}`}>    
+          <StyledLink key={`${movie?.id}-${movie?.credit_id}`} to={`/movies/movie-details/${movie?.id}`}>    
             <MovieListTile>
               {movie?.poster_path ? 
                 <MovieListImage src={`${imageUrl}${image.w500}${movie?.poster_path}`} /> :
