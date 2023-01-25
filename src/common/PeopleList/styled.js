@@ -27,8 +27,16 @@ export const PeopleListContainer = styled.div`
   `}
 `;
 
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: unset;
+`;
+
 export const PersonTile = styled.div`
   padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.heather};
   border-radius: 5px;
@@ -59,11 +67,4 @@ export const PersonImage = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     min-width: 120px;
   }
-`;
-
-export const StyledLink = styled(Link)`
-  height: 100%;
-  text-decoration: none;
-  display: flex;
-  color: unset;
 `;

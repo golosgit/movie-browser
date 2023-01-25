@@ -30,7 +30,7 @@ export const MovieDetailsPage = () => {
           <Backdrop movieDetails={movieDetails} /> :
           ""
         }
-        <MainWrapper>
+        <MainWrapper movie>
           <Details
             movieDetails={movieDetails}
             movie="true"

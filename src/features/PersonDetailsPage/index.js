@@ -25,7 +25,7 @@ export const PersonDetailsPage = () => {
     <>
     <Navigation />
       <Content status={status}>
-        <MainWrapper>
+        <MainWrapper person>
           <Details 
             personDetails={personDetails}
             person="true"

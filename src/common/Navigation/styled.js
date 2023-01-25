@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink, Link } from "react-router-dom";
 import { ReactComponent as Icon } from "../images/video.svg";
 
 export const Container = styled.div`
@@ -26,11 +27,13 @@ export const NavigationWrapper = styled.div`
   }
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   display: flex;
   flex-wrap: nowrap;
   cursor: pointer;
   margin-right: 80px;
+  color: inherit;
+  text-decoration: none;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletVerticalMax}px) {
     margin: 0;
@@ -100,8 +103,9 @@ export const LinkWrapper = styled.div`
   }
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink = styled(NavLink)`
   display: block;
+  color: inherit;
   text-decoration: none;
   text-transform: uppercase;
   border-radius: 24px;

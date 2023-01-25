@@ -20,8 +20,19 @@ export const MovieListContaier = styled.div`
   }
 `;
 
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  display: flex;
+  color: unset;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+    flex-direction: column;
+  }
+`;
+
 export const MovieListTile = styled.div`
   padding: 16px;
+  width: 100%;
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.heather};
   border-radius: 5px;
@@ -64,11 +75,4 @@ export const MovieListImage = styled.img`
 export const MovieInfo = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const StyledLink = styled(Link)`
-  height: 100%;
-  text-decoration: none;
-  display: flex;
-  color: unset;
 `;
