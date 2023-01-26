@@ -20,8 +20,7 @@ export const MovieListPage = () => {
     if (!genres) {
       dispatch(fetchGenres());
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, genres]);
 
   return (
     <>

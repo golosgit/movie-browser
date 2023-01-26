@@ -7,6 +7,7 @@ import { MainWrapper } from "../../common/MainWrapper";
 import { Details } from "../../common/Details";
 import { MovieList } from "../../common/MovieList";
 import { fetchPersonDetails, selectPersonDetails, selectCast, selectCrew, selectStatus } from "./personDetailsPageSlice";
+import { selectGenres, fetchGenres } from "../Genres/genresSlice";
 
 
 export const PersonDetailsPage = () => {
@@ -15,11 +16,16 @@ export const PersonDetailsPage = () => {
   const cast = useSelector(selectCast);
   const crew = useSelector(selectCrew);
   const status = useSelector(selectStatus);
+  const genres = useSelector(selectGenres);
   const { id } = useParams();
 
   useEffect(() => {
     dispatch(fetchPersonDetails(id));
-  }, [dispatch, id]);
+
+    if (!genres) {
+      dispatch(fetchGenres());
+    }
+  }, [dispatch, id, genres]);
 
   return (
     <>
@@ -35,12 +41,14 @@ export const PersonDetailsPage = () => {
             movieList={cast}
             credits="true"
             listView="true"
+            genres={genres}
           />
           <MovieList 
             title={`Movies - crew${` (${crew?.length})` || ``}`}
             movieList={crew}
             credits="true"
             listView="true"
+            genres={genres}
           />
         </MainWrapper>
       </Content>
