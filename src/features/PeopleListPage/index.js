@@ -4,6 +4,7 @@ import { Navigation } from "../../common/Navigation";
 import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper"
 import { PeopleList } from "../../common/PeopleList";
+import { Pagination } from "../../common/Paginaion";
 import { fetchPeopleList, selectPeopleList, selectStatus } from "./peopleListPageSlice";
 
 export const PeopleListPage = () => {
@@ -25,6 +26,7 @@ export const PeopleListPage = () => {
             peopleList={peopleList}
             listView="true"
           />
+          <Pagination />
         </MainWrapper>
       </Content>
     </>
