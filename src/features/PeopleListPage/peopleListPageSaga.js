@@ -7,7 +7,7 @@ function* fetchPeopleListHandler() {
   try {
     yield delay(500);
     const results = yield call(getData, `${baseUrl}${popularPeople}${apiKey}`);
-    yield put(fetchPeopleListSuccess(results.results));
+    yield put(fetchPeopleListSuccess(results));
   } catch (error) {
     yield put(fetchError());
   }

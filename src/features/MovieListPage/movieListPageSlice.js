@@ -9,9 +9,9 @@ const movieListSlice = createSlice({
     fetchMovieList: () => ({
       status: "loading",
     }),
-    fetchMovieListSuccess: (_, { payload: movieList }) => ({
+    fetchMovieListSuccess: (_, { payload: results }) => ({
       status: "success",
-      movieList: movieList,
+      movieList: results,
     }),
     fetchError: () => ({
       status: "error",
@@ -23,7 +23,9 @@ export const { fetchMovieList, fetchMovieListSuccess, fetchError } = movieListSl
 
 const selectMovieListState = state => state.movieList;
 
-export const selectMovieList = state => selectMovieListState(state).movieList;
+export const selectMovieList = state => selectMovieListState(state).movieList?.results;
 export const selectStatus = state => selectMovieListState(state).status;
+export const selectPage = state => selectMovieListState(state).movieList?.page;
+export const selectTotalPages = state => selectMovieListState(state).movieList?.total_pages;
 
 export default movieListSlice.reducer;

@@ -7,7 +7,7 @@ function* fetchMovieListHandler() {
   try {
     yield delay(500);
     const results = yield call(getData, `${baseUrl}${popularMovies}${apiKey}`);
-    yield put(fetchMovieListSuccess(results.results));
+    yield put(fetchMovieListSuccess(results));
   } catch (error) {
     yield put(fetchError());
   }

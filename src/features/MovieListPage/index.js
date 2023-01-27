@@ -5,7 +5,7 @@ import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper";
 import { MovieList } from "../../common/MovieList";
 import { Pagination } from "../../common/Paginaion";
-import { fetchMovieList, selectMovieList, selectStatus } from "./movieListPageSlice";
+import { fetchMovieList, selectMovieList, selectPage, selectStatus, selectTotalPages } from "./movieListPageSlice";
 import { selectGenres, fetchGenres } from "../../features/Genres/genresSlice";
 
 export const MovieListPage = () => {
@@ -13,7 +13,9 @@ export const MovieListPage = () => {
   const movieList = useSelector(selectMovieList);
   const genres = useSelector(selectGenres);
   const status = useSelector(selectStatus);
-  
+  const page = useSelector(selectPage);
+  const totalPages = useSelector(selectTotalPages);
+
   useEffect(() => {
     dispatch(fetchMovieList());
 
@@ -34,7 +36,10 @@ export const MovieListPage = () => {
             listView="true"
             genres={genres}
           />
-        <Pagination />
+        <Pagination 
+          page={page}
+          totalPages={totalPages}
+        />
         </MainWrapper>
       </Content>
     </>

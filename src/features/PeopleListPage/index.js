@@ -5,12 +5,14 @@ import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper"
 import { PeopleList } from "../../common/PeopleList";
 import { Pagination } from "../../common/Paginaion";
-import { fetchPeopleList, selectPeopleList, selectStatus } from "./peopleListPageSlice";
+import { fetchPeopleList, selectPage, selectPeopleList, selectStatus, selectTotalPages } from "./peopleListPageSlice";
 
 export const PeopleListPage = () => {
   const dispatch = useDispatch();
   const peopleList = useSelector(selectPeopleList);
   const status = useSelector(selectStatus);
+  const page = useSelector(selectPage);
+  const totalPages = useSelector(selectTotalPages);
 
   useEffect(() => {
     dispatch(fetchPeopleList());
@@ -26,7 +28,10 @@ export const PeopleListPage = () => {
             peopleList={peopleList}
             listView="true"
           />
-          <Pagination />
+          <Pagination 
+            page={page}
+            totalPages={totalPages}
+          />
         </MainWrapper>
       </Content>
     </>

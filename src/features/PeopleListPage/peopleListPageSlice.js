@@ -9,9 +9,9 @@ const peopleListSlice = createSlice({
     fetchPeopleList: () => ({
       status: "loading",
     }),
-    fetchPeopleListSuccess: (_, { payload: peopleList }) => ({
+    fetchPeopleListSuccess: (_, { payload: results }) => ({
       status: "success",
-      peopleList: peopleList,
+      peopleList: results,
     }),
     fetchError: () => ({
       status: "error",
@@ -23,7 +23,9 @@ export const { fetchPeopleList, fetchPeopleListSuccess, fetchError } = peopleLis
 
 const selectPeopleListState = state => state.peopleList;
 
-export const selectPeopleList = state => selectPeopleListState(state).peopleList;
+export const selectPeopleList = state => selectPeopleListState(state).peopleList?.results;
 export const selectStatus = state => selectPeopleListState(state).status;
+export const selectPage = state => selectPeopleListState(state).peopleList?.page;
+export const selectTotalPages = state => selectPeopleListState(state).peopleList?.total_pages;
 
 export default peopleListSlice.reducer;
