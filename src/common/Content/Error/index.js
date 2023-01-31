@@ -11,7 +11,7 @@ export const Error = () => {
         <StyledIcon />
         <Header errorMessage>Ooops! Something went wrong...</Header>
         <Text errorMessage>Please check your network connection and try again</Text>
-        <Button to={toMovieList()}>Back to home page</Button>
+        <Button to={toMovieList}>Back to home page</Button>
       </Wrapper>
     </MainWrapper>
   );

@@ -20,8 +20,8 @@ export const Navigation = () => {
           <Title>Movies browser</Title>
         </Logo>
         <LinkWrapper>
-          <StyledLink to={toMovieList()}>Movies</StyledLink>
-          <StyledLink to={toPeopleList()}>People</StyledLink>
+          <StyledLink to={toMovieList}>Movies</StyledLink>
+          <StyledLink to={toPeopleList}>People</StyledLink>
         </LinkWrapper>
         <SearchContainer>
           <Search />
