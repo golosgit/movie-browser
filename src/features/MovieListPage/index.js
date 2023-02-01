@@ -19,15 +19,17 @@ export const MovieListPage = () => {
   const totalPages = useSelector(selectTotalPages);
   const [params] = useSearchParams();
 
-  const fetchPage = params.get(pageParamName) || 1;
+  const pageNumber = params.get(pageParamName) || 1;
 
   useEffect(() => {
-    dispatch(fetchMovieList(fetchPage));
+    if (status !== "loading") {
+      dispatch(fetchMovieList(pageNumber));
+    }
 
     if (!genres) {
       dispatch(fetchGenres());
     }
-  }, [dispatch, genres, fetchPage]);
+  }, [dispatch, genres, pageNumber]);
 
   return (
     <>
