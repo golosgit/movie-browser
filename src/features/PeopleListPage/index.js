@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import { Navigation } from "../../common/Navigation"; 
 import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper"
 import { PeopleList } from "../../common/PeopleList";
 import { Pagination } from "../../common/Paginaion";
 import { fetchPeopleList, selectPage, selectPeopleList, selectStatus, selectTotalPages } from "./peopleListPageSlice";
+import { pageParamName } from "../../urlParams";
 
 export const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -13,10 +15,16 @@ export const PeopleListPage = () => {
   const status = useSelector(selectStatus);
   const page = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
+  const [params] = useSearchParams();
+
+  const pageNumber = params.get(pageParamName) || 1;
 
   useEffect(() => {
-    dispatch(fetchPeopleList());
-  }, [dispatch]);
+    if (status !== "loading") {
+      dispatch(fetchPeopleList(pageNumber));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, pageNumber]);
 
   return (
     <>
