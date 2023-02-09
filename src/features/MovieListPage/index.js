@@ -8,7 +8,7 @@ import { MovieList } from "../../common/MovieList";
 import { Pagination } from "../../common/Paginaion";
 import { fetchMovieList, selectMovieList, selectPage, selectStatus, selectTotalPages } from "./movieListPageSlice";
 import { selectGenres, fetchGenres } from "../../features/Genres/genresSlice";
-import { pageParamName } from "../../urlParams";
+import { pageParamName, searchParamName } from "../../urlParams";
 
 export const MovieListPage = () => {
   const dispatch = useDispatch();
@@ -20,17 +20,18 @@ export const MovieListPage = () => {
   const [params] = useSearchParams();
 
   const pageNumber = params.get(pageParamName) || 1;
+  const searchParam = params.get(searchParamName) || "";
 
   useEffect(() => {
     if (status !== "loading") {
-      dispatch(fetchMovieList(pageNumber));
+      dispatch(fetchMovieList({ pageNumber, searchParam }));
     }
 
     if (!genres) {
       dispatch(fetchGenres());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, genres, pageNumber]);
+  }, [dispatch, genres, pageNumber, searchParam]);
 
   return (
     <>
