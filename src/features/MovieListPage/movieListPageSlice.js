@@ -31,5 +31,6 @@ export const selectMovieList = state => selectMovieListState(state).movieList?.r
 export const selectStatus = state => selectMovieListState(state).status;
 export const selectPage = state => selectMovieListState(state).movieList?.page;
 export const selectTotalPages = state => selectMovieListState(state).movieList?.total_pages;
+export const selectTotalResults = state => selectMovieListState(state).movieList?.total_results;
 
 export default movieListSlice.reducer;

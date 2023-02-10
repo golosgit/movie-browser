@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { Navigation } from "../../common/Navigation";
@@ -6,7 +6,7 @@ import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper";
 import { MovieList } from "../../common/MovieList";
 import { Pagination } from "../../common/Paginaion";
-import { fetchMovieList, selectMovieList, selectPage, selectStatus, selectTotalPages } from "./movieListPageSlice";
+import { fetchMovieList, selectMovieList, selectPage, selectStatus, selectTotalPages, selectTotalResults } from "./movieListPageSlice";
 import { selectGenres, fetchGenres } from "../../features/Genres/genresSlice";
 import { pageParamName, searchParamName } from "../../urlParams";
 
@@ -17,10 +17,14 @@ export const MovieListPage = () => {
   const status = useSelector(selectStatus);
   const page = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
+  const total_results = useSelector(selectTotalResults);
   const [params] = useSearchParams();
+  const [message, setMessage] = useState("");
 
   const pageNumber = params.get(pageParamName) || 1;
   const searchParam = params.get(searchParamName) || "";
+
+  console.log(movieList);
 
   useEffect(() => {
     if (status !== "loading") {
@@ -30,16 +34,22 @@ export const MovieListPage = () => {
     if (!genres) {
       dispatch(fetchGenres());
     }
+
+    if (searchParam) {
+      setMessage(`Search results for ${searchParam}`);
+    } else {
+      setMessage("");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, genres, pageNumber, searchParam]);
 
   return (
     <>
       <Navigation />
-      <Content status={status}>
+      <Content status={status} message={message}>
         <MainWrapper>
           <MovieList
-            title="Popular movies"
+            title={message ? `Search results for ${searchParam} (${total_results})` : `Popular movies`}
             movieList={movieList}
             hideMaxVotes
             listView="true"
