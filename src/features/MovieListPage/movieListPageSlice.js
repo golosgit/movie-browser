@@ -11,8 +11,8 @@ const movieListSlice = createSlice({
       page: pageNumber,
       query: searchParam,
     }),
-    fetchMovieListSuccess: (_, { payload: results }) => ({
-      status: "success",
+    fetchMovieListSuccess: (_, { payload: { status, results } }) => ({
+      status: status,
       movieList: results,
     }),
     fetchError: () => ({

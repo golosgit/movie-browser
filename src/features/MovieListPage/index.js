@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { Navigation } from "../../common/Navigation";
@@ -17,14 +17,11 @@ export const MovieListPage = () => {
   const status = useSelector(selectStatus);
   const page = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
-  const total_results = useSelector(selectTotalResults);
+  const totalResults = useSelector(selectTotalResults);
   const [params] = useSearchParams();
-  const [message, setMessage] = useState("");
 
   const pageNumber = params.get(pageParamName) || 1;
   const searchParam = params.get(searchParamName) || "";
-
-  console.log(movieList);
 
   useEffect(() => {
     if (status !== "loading") {
@@ -35,21 +32,16 @@ export const MovieListPage = () => {
       dispatch(fetchGenres());
     }
 
-    if (searchParam) {
-      setMessage(`Search results for ${searchParam}`);
-    } else {
-      setMessage("");
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, genres, pageNumber, searchParam]);
 
   return (
     <>
       <Navigation />
-      <Content status={status} message={message}>
+      <Content status={status} message={searchParam}>
         <MainWrapper>
           <MovieList
-            title={message ? `Search results for ${searchParam} (${total_results})` : `Popular movies`}
+            title={searchParam ? `Search results for "${searchParam}" (${totalResults})` : `Popular movies`}
             movieList={movieList}
             hideMaxVotes
             listView="true"

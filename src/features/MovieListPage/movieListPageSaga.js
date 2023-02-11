@@ -19,7 +19,14 @@ function* fetchMovieListHandler() {
   try {
     yield delay(500);
     const results = yield call(getData, url(query));
-    yield put(fetchMovieListSuccess(results));
+
+    if (results.total_results === 0) {
+      const status = "no results";
+      yield put(fetchMovieListSuccess({ status, results }));
+    } else {
+      const status = "success";
+      yield put(fetchMovieListSuccess({ status, results }));
+    }   
   } catch (error) {
     yield put(fetchError());
   }
