@@ -6,7 +6,7 @@ import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper";
 import { MovieList } from "../../common/MovieList";
 import { Pagination } from "../../common/Paginaion";
-import { fetchMovieList, selectMovieList, selectPage, selectStatus, selectTotalPages, selectTotalResults } from "./movieListPageSlice";
+import { fetchMovieList, selectMovieList, selectPage, selectStatus, selectTotalPages, selectTotalResults, fetchError } from "./movieListPageSlice";
 import { selectGenres, fetchGenres } from "../../features/Genres/genresSlice";
 import { pageParamName, searchParamName } from "../../urlParams";
 
@@ -22,6 +22,10 @@ export const MovieListPage = () => {
 
   const pageNumber = params.get(pageParamName) || 1;
   const searchParam = params.get(searchParamName) || "";
+
+  if (pageNumber > totalPages) {
+    dispatch(fetchError());
+  }
 
   useEffect(() => {
     if (status !== "loading") {
