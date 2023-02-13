@@ -6,13 +6,13 @@ export const Search = () => {
   const location = useLocation();
 
   const urlParams = useUrlParams();
-  const updateUrlPageParam = urlParams[1];
+  const updateUrlSearchParam = urlParams[1];
 
   const searchText = location.pathname.includes("/movies") ? "movies" : "people";
 
-  const setQuery = event => {
+  const setQuery = (event) => {
     setTimeout(() => {
-      updateUrlPageParam(event.target.value);
+      updateUrlSearchParam(event.target.value);
     }, 1000);
   };
 
@@ -20,8 +20,8 @@ export const Search = () => {
     <SearchWrapper>
       <SearchIcon />
       <StyledInput 
-        placeholder={`Search for ${searchText}...`}
-        onChange={setQuery}
+        placeholder={`Search for ${searchText}...`} 
+        onChange={setQuery} 
       />
     </SearchWrapper>
   );
