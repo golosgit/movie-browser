@@ -13,7 +13,6 @@ export const useUrlParams = () => {
 
   const updateUrlSearchParam = query => {
     params.set(searchParamName, query);
-    params.set(pageParamName, 1);
     setParams(params);
   };
 

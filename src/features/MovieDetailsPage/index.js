@@ -8,7 +8,7 @@ import { Backdrop } from "./Backdrop";
 import { PeopleList } from "../../common/PeopleList";
 import { fetchMovieDetails, selectMovieDetails, selectCast, selectCrew, selectStatus } from "./movieDetailsPageSlice";
 import { MainWrapper } from "../../common/MainWrapper";
-import { pageParamName, searchParamName } from "../../urlParams";
+import { searchParamName } from "../../urlParams";
 import { toMovieList } from "../../routes";
 
 export const MovieDetailsPage = () => {
@@ -18,21 +18,19 @@ export const MovieDetailsPage = () => {
   const cast = useSelector(selectCast);
   const crew = useSelector(selectCrew);
   const status = useSelector(selectStatus);
-  const { id } = useParams();
   const [params] = useSearchParams();
 
-  const pageNumber = params.get(pageParamName) || 1;
   const searchParam = params.get(searchParamName) || "";
 
-  useEffect(() => {
-    dispatch(fetchMovieDetails(id));
-  }, [dispatch, id]);
+  const { id } = useParams();
 
   useEffect(() => {
-    if (searchParam) {
-      navigate(`${toMovieList}?${searchParamName}=${searchParam}&${pageParamName}=${pageNumber}`);
+    if (!searchParam) {
+      dispatch(fetchMovieDetails(id));
+    } else {
+      navigate(`${toMovieList}?${searchParamName}=${searchParam}`);
     }
-  }, [searchParam, pageNumber, navigate]);
+  }, [searchParam, navigate, dispatch, id]);
 
   return (
     <>
