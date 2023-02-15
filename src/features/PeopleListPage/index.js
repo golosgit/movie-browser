@@ -6,8 +6,8 @@ import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper"
 import { PeopleList } from "../../common/PeopleList";
 import { Pagination } from "../../common/Paginaion";
-import { fetchPeopleList, selectPage, selectPeopleList, selectStatus, selectTotalPages } from "./peopleListPageSlice";
-import { pageParamName } from "../../urlParams";
+import { fetchError, fetchPeopleList, selectPage, selectPeopleList, selectStatus, selectTotalPages, selectTotalResults } from "./peopleListPageSlice";
+import { pageParamName, searchParamName } from "../../urlParams";
 
 export const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -15,24 +15,30 @@ export const PeopleListPage = () => {
   const status = useSelector(selectStatus);
   const page = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
+  const totalResults = useSelector(selectTotalResults);
   const [params] = useSearchParams();
 
   const pageNumber = params.get(pageParamName) || 1;
+  const searchParam = params.get(searchParamName) || "";
+
+  if (pageNumber > totalPages) {
+    dispatch(fetchError());
+  }
 
   useEffect(() => {
     if (status !== "loading") {
-      dispatch(fetchPeopleList(pageNumber));
+      dispatch(fetchPeopleList({ pageNumber, searchParam }));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, pageNumber]);
+  }, [dispatch, pageNumber, searchParam]);
 
   return (
     <>
     <Navigation />
-      <Content status={status}>
+      <Content status={status} message={searchParam}>
         <MainWrapper>
           <PeopleList
-            title="Popular movies"
+            title={searchParam ? `Search results for "${searchParam}" (${totalResults})` : "Popular movies"}
             peopleList={peopleList}
             listView="true"
           />

@@ -6,12 +6,13 @@ const peopleListSlice = createSlice({
     status: "initial",
 },
   reducers: {
-    fetchPeopleList: (_, { payload: page }) => ({
+    fetchPeopleList: (_, { payload: { pageNumber, searchParam } }) => ({
       status: "loading",
-      page: page,
+      page: pageNumber,
+      query: searchParam,
     }),
-    fetchPeopleListSuccess: (_, { payload: results }) => ({
-      status: "success",
+    fetchPeopleListSuccess: (_, { payload: { status, results } }) => ({
+      status: status,
       peopleList: results,
     }),
     fetchError: () => ({
@@ -24,10 +25,12 @@ export const { fetchPeopleList, fetchPeopleListSuccess, fetchError } = peopleLis
 
 const selectPeopleListState = state => state.peopleList;
 
-export const selectFetchPage = state => selectPeopleListState(state).page;
+export const selectUrlPageParam = state => selectPeopleListState(state).page;
+export const selectUrlSearchParam = state => selectPeopleListState(state).query;
 export const selectPeopleList = state => selectPeopleListState(state).peopleList?.results;
 export const selectStatus = state => selectPeopleListState(state).status;
 export const selectPage = state => selectPeopleListState(state).peopleList?.page;
 export const selectTotalPages = state => selectPeopleListState(state).peopleList?.total_pages;
+export const selectTotalResults = state => selectPeopleListState(state).peopleList?.total_results;
 
 export default peopleListSlice.reducer;
