@@ -20,6 +20,14 @@ export const Header = styled.h2`
     }
   `}
 
+  ${({ defaultError }) => defaultError && css`
+    margin-bottom: 12px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      margin-bottom: 6px;
+    }
+  `}
+
   ${({ details }) => details && css`
     margin-top: 8px;
 

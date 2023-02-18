@@ -45,4 +45,8 @@ export const Text = styled.p`
       margin: 0;
     }
   `}
+
+  ${({ hidden }) => hidden && css`
+    display: none;
+  `}
 `;

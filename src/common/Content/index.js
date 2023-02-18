@@ -1,5 +1,5 @@
 import { Loading } from "./Loading";
-import { Error } from "./Error";
+import { Error } from "../Error";
 import { NoResults } from "./NoResults";
 
 export const Content = ({ status, children, message }) => {
