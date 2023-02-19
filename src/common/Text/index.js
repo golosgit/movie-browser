@@ -46,7 +46,7 @@ export const Text = styled.p`
     }
   `}
 
-  ${({ hidden }) => hidden && css`
+  ${({ hide }) => hide && css`
     display: none;
   `}
 `;
