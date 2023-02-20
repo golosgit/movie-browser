@@ -12,7 +12,7 @@ export const Search = () => {
 
   const setQuery = (event) => {
     setTimeout(() => {
-      updateUrlSearchParam(event.target.value);
+      updateUrlSearchParam(event.target.value.trim());
     }, 1000);
   };
 

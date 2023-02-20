@@ -1,4 +1,4 @@
-import { useSearchParams} from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export const pageParamName = "page";
 export const searchParamName = "search";
@@ -12,7 +12,13 @@ export const useUrlParams = () => {
   };
 
   const updateUrlSearchParam = query => {
-    params.set(searchParamName, query);
+    if (query) {
+      params.set(searchParamName, query);
+    } else {
+      params.delete(searchParamName); 
+    }
+
+    params.delete(pageParamName);
     setParams(params);
   };
 
