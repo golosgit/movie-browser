@@ -13,11 +13,9 @@ export const Search = () => {
   const searchText = location.pathname.includes("/movies") ? "movies" : "people";
   const searchParam = params.get(searchParamName) || "";
 
-  const setUrlQuery = (event) => {
-    setQuery(event.target.value);
-    setTimeout(() => { 
-      updateUrlSearchParam(event.target.value.trim());
-    }, 1000);
+  const setUrlQuery = ({ target }) => {
+    setQuery(target.value);
+    updateUrlSearchParam(target.value.trim());
   };
 
   useEffect(() => {
@@ -30,6 +28,7 @@ export const Search = () => {
       <StyledInput 
         value={query}
         placeholder={`Search for ${searchText}...`} 
+        debounceTimeout={700}
         onChange={setUrlQuery} 
       />
     </SearchWrapper>

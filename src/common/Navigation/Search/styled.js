@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DebounceInput } from "react-debounce-input";
 import { ReactComponent as Icon } from "./search.svg";
 
 export const SearchWrapper = styled.div`
@@ -15,7 +16,7 @@ export const SearchWrapper = styled.div`
   }
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled(DebounceInput)`
   width: auto;
   border: none;
   outline: none;
