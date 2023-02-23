@@ -1,5 +1,5 @@
 import { Container, Button, Text, PagesWrapper, Page, Arrow } from "./styled";
-import { useUrlParams } from "../../urlParams";
+import { useUrlParams } from "../../core/urlParams";
 
 export const Pagination = ({ page, totalPages }) => {
   const disabledPrevious = page === 1;

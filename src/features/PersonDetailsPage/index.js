@@ -8,8 +8,8 @@ import { Details } from "../../common/Details";
 import { MovieList } from "../../common/MovieList";
 import { fetchPersonDetails, selectPersonDetails, selectCast, selectCrew, selectStatus } from "./personDetailsPageSlice";
 import { selectGenres, fetchGenres } from "../Genres/genresSlice";
-import { searchParamName } from "../../urlParams";
-import { toPeopleList } from "../../routes";
+import { searchParamName } from "../../core/urlParams";
+import { toPeopleList } from "../../core/routes";
 
 export const PersonDetailsPage = () => {
   const dispatch = useDispatch();

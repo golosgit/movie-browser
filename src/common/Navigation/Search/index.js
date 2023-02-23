@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { SearchWrapper, StyledInput, SearchIcon } from "./styled";
-import { searchParamName, useUrlParams } from "../../../urlParams";
+import { searchParamName, useUrlParams } from "../../../core/urlParams";
 
 export const Search = () => {
   const location = useLocation();

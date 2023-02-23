@@ -8,8 +8,8 @@ import { Backdrop } from "./Backdrop";
 import { PeopleList } from "../../common/PeopleList";
 import { fetchMovieDetails, selectMovieDetails, selectCast, selectCrew, selectStatus } from "./movieDetailsPageSlice";
 import { MainWrapper } from "../../common/MainWrapper";
-import { searchParamName } from "../../urlParams";
-import { toMovieList } from "../../routes";
+import { searchParamName } from "../../core/urlParams";
+import { toMovieList } from "../../core/routes";
 
 export const MovieDetailsPage = () => {
   const dispatch = useDispatch();

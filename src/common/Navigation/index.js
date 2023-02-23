@@ -9,7 +9,7 @@ import {
   StyledLink,
   SearchContainer,
 } from "./styled";
-import { toMovieList, toPeopleList } from "../../routes";
+import { toMovieList, toPeopleList } from "../../core/routes";
 
 export const Navigation = () => {
   return (

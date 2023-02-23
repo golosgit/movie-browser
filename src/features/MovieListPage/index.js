@@ -8,7 +8,7 @@ import { MovieList } from "../../common/MovieList";
 import { Pagination } from "../../common/Paginaion";
 import { fetchMovieList, selectMovieList, selectPage, selectStatus, selectTotalPages, selectTotalResults, fetchError } from "./movieListPageSlice";
 import { selectGenres, fetchGenres } from "../../features/Genres/genresSlice";
-import { pageParamName, searchParamName } from "../../urlParams";
+import { pageParamName, searchParamName } from "../../core/urlParams";
 
 export const MovieListPage = () => {
   const dispatch = useDispatch();

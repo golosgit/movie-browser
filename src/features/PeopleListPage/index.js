@@ -7,7 +7,7 @@ import { MainWrapper } from "../../common/MainWrapper"
 import { PeopleList } from "../../common/PeopleList";
 import { Pagination } from "../../common/Paginaion";
 import { fetchError, fetchPeopleList, selectPage, selectPeopleList, selectStatus, selectTotalPages, selectTotalResults } from "./peopleListPageSlice";
-import { pageParamName, searchParamName } from "../../urlParams";
+import { pageParamName, searchParamName } from "../../core/urlParams";
 
 export const PeopleListPage = () => {
   const dispatch = useDispatch();

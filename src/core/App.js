@@ -1,4 +1,4 @@
-import { Navigation } from "../src/common/Navigation";
+import { Navigation } from "../common/Navigation";
 
 function App() {
   return (

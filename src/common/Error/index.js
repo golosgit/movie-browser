@@ -2,7 +2,7 @@ import { Wrapper, StyledIcon, Button } from "./styled";
 import { MainWrapper } from "../MainWrapper";
 import { Header } from "../Header";
 import { Text } from "../Text";
-import { toMovieList } from "../../routes";
+import { toMovieList } from "../../core/routes";
 
 export const Error = ({ defaultError }) => {
   return (

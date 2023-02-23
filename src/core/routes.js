@@ -1,9 +1,9 @@
 import { createHashRouter, Navigate } from "react-router-dom";
-import { MovieListPage } from "./features/MovieListPage";
-import { PeopleListPage } from "./features/PeopleListPage";
-import { MovieDetailsPage } from "./features/MovieDetailsPage";
-import { PersonDetailsPage } from "./features/PersonDetailsPage";
-import { DefaultError } from "./common/DefaultError";
+import { MovieListPage } from "../features/MovieListPage";
+import { PeopleListPage } from "../features/PeopleListPage";
+import { MovieDetailsPage } from "../features/MovieDetailsPage";
+import { PersonDetailsPage } from "../features/PersonDetailsPage";
+import { DefaultError } from "../common/DefaultError";
 
 export const toMovieList = "/movies";
 export const toPeopleList = "/people";

@@ -4,14 +4,13 @@ import { Genres } from "../Genres";
 import { Rating } from "../Rating";
 import { OptionalText } from "../OptionalText";
 import { imageUrl, image } from "../../features/api";
-import { changeDateFormat } from "../../features/changeDateFormat";
 
 export const Details = ({ movie, movieDetails, personDetails }) => {
   const picture = movieDetails?.poster_path || personDetails?.profile_path;
   const place = movieDetails?.production_countries.map((country) => country.name).join(", ") || personDetails?.place_of_birth || "N/A";
   const date = movieDetails?.release_date || personDetails?.birthday;
 
-  const formattedDate = date ? changeDateFormat(date) : "N/A";
+  const formattedDate = date ? date.split("-").reverse().join(".") : "N/A";
 
   return (
     <Container>
