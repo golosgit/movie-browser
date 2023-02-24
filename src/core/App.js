@@ -1,9 +1,7 @@
 import { Navigation } from "../common/Navigation";
 
 function App() {
-  return (
-    <Navigation />
-  );
+  return <Navigation />;
 }
 
 export default App;

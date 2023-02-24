@@ -1,0 +1,5 @@
+{
+  "importOrder": ["^react(.*)", "antd/(.*)", "<THIRD_PARTY_MODULES>", "@/(.*)", "^[./]"],
+  "tabWidth": 2,
+  "printWidth": 160
+}

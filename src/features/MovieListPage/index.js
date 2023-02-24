@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { Navigation } from "../../common/Navigation";
 import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper";
 import { MovieList } from "../../common/MovieList";
+import { Navigation } from "../../common/Navigation";
 import { Pagination } from "../../common/Paginaion";
-import { fetchMovieList, selectMovieList, selectPage, selectStatus, selectTotalPages, selectTotalResults, fetchError } from "./movieListPageSlice";
-import { selectGenres, fetchGenres } from "../../features/Genres/genresSlice";
 import { pageParamName, searchParamName } from "../../core/urlParams";
+import { selectGenres, fetchGenres } from "../../features/Genres/genresSlice";
+import { fetchMovieList, selectMovieList, selectPage, selectStatus, selectTotalPages, selectTotalResults, fetchError } from "./movieListPageSlice";
 
 export const MovieListPage = () => {
   const dispatch = useDispatch();
@@ -50,10 +50,7 @@ export const MovieListPage = () => {
             listView="true"
             genres={genres}
           />
-        <Pagination 
-          page={page}
-          totalPages={totalPages}
-        />
+          <Pagination page={page} totalPages={totalPages} />
         </MainWrapper>
       </Content>
     </>

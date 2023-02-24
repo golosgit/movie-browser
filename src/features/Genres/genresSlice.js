@@ -1,10 +1,10 @@
-import { createSlice }  from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const genresSlice = createSlice({
   name: "genres",
   initialState: {
     genres: null,
-},
+  },
   reducers: {
     fetchGenres: () => {},
     fetchGenresSuccess: (_, { payload: genres }) => ({

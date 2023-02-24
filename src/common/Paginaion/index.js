@@ -1,5 +1,5 @@
-import { Container, Button, Text, PagesWrapper, Page, Arrow } from "./styled";
 import { useUrlParams } from "../../core/urlParams";
+import { Container, Button, Text, PagesWrapper, Page, Arrow } from "./styled";
 
 export const Pagination = ({ page, totalPages }) => {
   const disabledPrevious = page === 1;
@@ -12,12 +12,12 @@ export const Pagination = ({ page, totalPages }) => {
   return (
     <Container>
       <Button disabled={disabledPrevious} onClick={() => updateUrlPageParam(1)}>
-        <Arrow disabled={disabledPrevious}/>
+        <Arrow disabled={disabledPrevious} />
         <Text disabled={disabledPrevious}>First</Text>
       </Button>
       <Button disabled={disabledPrevious} onClick={() => updateUrlPageParam(page - 1)}>
-        <Arrow disabled={disabledPrevious}/>
-        <Arrow disabled={disabledPrevious} mobile="true"/>
+        <Arrow disabled={disabledPrevious} />
+        <Arrow disabled={disabledPrevious} mobile="true" />
         <Text disabled={disabledPrevious}>Previous</Text>
       </Button>
 
@@ -30,12 +30,12 @@ export const Pagination = ({ page, totalPages }) => {
 
       <Button disabled={disabledNext} onClick={() => updateUrlPageParam(page + 1)}>
         <Text disabled={disabledNext}>Next</Text>
-        <Arrow disabled={disabledNext} right="true"/>
-        <Arrow disabled={disabledNext} right="true" mobile="true"/>
+        <Arrow disabled={disabledNext} right="true" />
+        <Arrow disabled={disabledNext} right="true" mobile="true" />
       </Button>
       <Button disabled={disabledNext} onClick={() => updateUrlPageParam(lastPage)}>
         <Text disabled={disabledNext}>Last</Text>
-        <Arrow disabled={disabledNext} right="true"/>
+        <Arrow disabled={disabledNext} right="true" />
       </Button>
     </Container>
   );

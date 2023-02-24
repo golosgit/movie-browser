@@ -1,10 +1,10 @@
-import { createSlice }  from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const movieDetailsSlice = createSlice({
   name: "movieDetails",
   initialState: {
     status: "initial",
-},
+  },
   reducers: {
     fetchMovieDetails: (_, { payload: id }) => ({
       status: "loading",

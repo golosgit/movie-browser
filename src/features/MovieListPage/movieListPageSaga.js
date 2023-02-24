@@ -1,7 +1,7 @@
 import { put, takeLatest, delay, call, select } from "redux-saga/effects";
-import { fetchMovieList, fetchMovieListSuccess, fetchError, selectUrlPageParam, selectUrlSearchParam } from "./movieListPageSlice";
 import { baseUrl, popularMovies, apiKey, searchMovies } from "../api";
 import { getData } from "../getData";
+import { fetchMovieList, fetchMovieListSuccess, fetchError, selectUrlPageParam, selectUrlSearchParam } from "./movieListPageSlice";
 
 function* fetchMovieListHandler() {
   const page = yield select(selectUrlPageParam) || 1;
@@ -14,7 +14,7 @@ function* fetchMovieListHandler() {
       return `${baseUrl}${searchMovies}${apiKey}${fetchPage}${fetchQuery}`;
     }
     return `${baseUrl}${popularMovies}${apiKey}${fetchPage}`;
-  } 
+  };
 
   try {
     yield delay(500);
@@ -26,7 +26,7 @@ function* fetchMovieListHandler() {
     } else {
       const status = "success";
       yield put(fetchMovieListSuccess({ status, results }));
-    }   
+    }
   } catch (error) {
     yield put(fetchError());
   }

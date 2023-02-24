@@ -1,15 +1,6 @@
-import { Search } from "./Search";
-import {
-  Container,
-  NavigationWrapper,
-  Logo,
-  NavigationIcon,
-  Title,
-  LinkWrapper,
-  StyledLink,
-  SearchContainer,
-} from "./styled";
 import { toMovieList, toPeopleList } from "../../core/routes";
+import { Search } from "./Search";
+import { Container, NavigationWrapper, Logo, NavigationIcon, Title, LinkWrapper, StyledLink, SearchContainer } from "./styled";
 
 export const Navigation = () => {
   return (

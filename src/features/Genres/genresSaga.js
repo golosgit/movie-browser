@@ -1,7 +1,7 @@
 import { put, takeLatest, delay, call } from "redux-saga/effects";
-import { fetchGenres, fetchGenresSuccess } from "./genresSlice";
 import { baseUrl, genres, apiKey } from "../api";
 import { getData } from "../getData";
+import { fetchGenres, fetchGenresSuccess } from "./genresSlice";
 
 function* fetchGenresHandler() {
   try {

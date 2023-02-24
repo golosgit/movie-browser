@@ -1,9 +1,9 @@
-import { Container, Image, Info, Description, Year, List, ListRow, ListTerm, ListDescription } from "./styled";
-import { Header } from "../Header";
-import { Genres } from "../Genres";
-import { Rating } from "../Rating";
-import { OptionalText } from "../OptionalText";
 import { imageUrl, image } from "../../features/api";
+import { Genres } from "../Genres";
+import { Header } from "../Header";
+import { OptionalText } from "../OptionalText";
+import { Rating } from "../Rating";
+import { Container, Image, Info, Description, Year, List, ListRow, ListTerm, ListDescription } from "./styled";
 
 export const Details = ({ movie, movieDetails, personDetails }) => {
   const picture = movieDetails?.poster_path || personDetails?.profile_path;
@@ -15,7 +15,7 @@ export const Details = ({ movie, movieDetails, personDetails }) => {
   return (
     <Container>
       {picture ? 
-        <Image movie={movie} src={`${imageUrl}${image.w400}${picture}`} /> :
+        <Image movie={movie} src={`${imageUrl}${image.w400}${picture}`} /> : 
         <Image movie={movie} />
       }
       <Info>
@@ -26,26 +26,28 @@ export const Details = ({ movie, movieDetails, personDetails }) => {
         }
         <List movie={movie}>
           <ListRow>
-            <ListTerm movie={movie}>
-              {movie ? "Production:" : "Date of birth:"}
-            </ListTerm>
-            <ListDescription>
-              {movie ? place : formattedDate}</ListDescription>
+            <ListTerm movie={movie}>{movie ? "Production:" : "Date of birth:"}</ListTerm>
+            <ListDescription>{movie ? place : formattedDate}</ListDescription>
           </ListRow>
           <ListRow nextItem>
-            <ListTerm movie={movie}>
-              {movie ? "Release date:" : "Place of birth:"}
-            </ListTerm>
-            <ListDescription>
-              {movie ? formattedDate : place}</ListDescription>
+            <ListTerm movie={movie}>{movie ? "Release date:" : "Place of birth:"}</ListTerm>
+            <ListDescription>{movie ? formattedDate : place}</ListDescription>
           </ListRow>
         </List>
         {movie ? 
-          <Genres details="true" genres={movieDetails?.genres} /> : 
+          <Genres 
+            details="true" 
+            genres={movieDetails?.genres} 
+          /> : 
           ""
         }
         {movie ? 
-          <Rating details="true" average={movieDetails?.vote_average} totalVotes={movieDetails?.vote_count} hideMaxVotes /> :
+          <Rating 
+            details="true" 
+            average={movieDetails?.vote_average} 
+            totalVotes={movieDetails?.vote_count} 
+            hideMaxVotes 
+          /> : 
           ""
         }
       </Info>

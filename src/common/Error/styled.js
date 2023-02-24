@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { ReactComponent as Icon } from "./error.svg";
 
 export const Wrapper = styled.div`
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   justify-items: center;
   grid-template-columns: 1fr;
 
-  @media (max-width: ${({ theme}) => theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     margin-top: 80px;
   }
 `;
@@ -30,7 +30,7 @@ export const Button = styled(Link)`
   background-color: ${({ theme }) => theme.color.scienceBlue};
   color: ${({ theme }) => theme.color.white};
   text-decoration: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin-top: 24px;
   border-radius: 5px;
   border: none;

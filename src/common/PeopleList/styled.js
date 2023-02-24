@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 import noImage from "../images/profile.svg";
 
 export const PeopleListContainer = styled.div`

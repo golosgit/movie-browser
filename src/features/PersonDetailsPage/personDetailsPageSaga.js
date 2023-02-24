@@ -1,7 +1,7 @@
 import { put, takeLatest, delay, call, select, all } from "redux-saga/effects";
-import { fetchPersonDetails, fetchPersonDetailsSuccess, fetchError, selectPersonId } from "./personDetailsPageSlice";
 import { baseUrl, personDetails, personDetailsCredits, apiKey } from "../api";
 import { getData } from "../getData";
+import { fetchPersonDetails, fetchPersonDetailsSuccess, fetchError, selectPersonId } from "./personDetailsPageSlice";
 
 function* fetchPersonDetailsHandler() {
   const id = yield select(selectPersonId);

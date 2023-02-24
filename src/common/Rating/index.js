@@ -1,5 +1,5 @@
-import { Container, StyledIcon, Evaluation } from "./styled";
 import { OptionalText } from "../OptionalText";
+import { Container, StyledIcon, Evaluation } from "./styled";
 
 export const Rating = ({ average, hideMaxVotes, totalVotes, listView, details, backdrop, votes, secondLine, hidden }) => {
   return (

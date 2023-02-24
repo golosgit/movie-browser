@@ -1,18 +1,18 @@
-import { Loading } from "./Loading";
 import { Error } from "../Error";
+import { Loading } from "./Loading";
 import { NoResults } from "./NoResults";
 
 export const Content = ({ status, children, message }) => {
   switch (status) {
     case "loading":
-      return <Loading message={message}/>
-    
+      return <Loading message={message} />;
+
     case "no results":
-      return <NoResults message={message}/>
+      return <NoResults message={message} />;
 
     case "error":
-      return <Error />
-    
+      return <Error />;
+
     case "success":
       return children;
 

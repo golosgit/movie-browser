@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
+import styled from "styled-components";
 import { ReactComponent as Icon } from "../images/video.svg";
 
 export const Container = styled.div`

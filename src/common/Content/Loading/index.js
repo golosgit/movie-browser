@@ -1,5 +1,5 @@
-import { MainWrapper } from "../../MainWrapper";
 import { Header } from "../../Header";
+import { MainWrapper } from "../../MainWrapper";
 import { Wrapper, StyledIcon } from "./styled";
 
 export const Loading = ({ message }) => {

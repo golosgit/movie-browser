@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
-import { SearchWrapper, StyledInput, SearchIcon } from "./styled";
 import { searchParamName, useUrlParams } from "../../../core/urlParams";
+import { SearchWrapper, StyledInput, SearchIcon } from "./styled";
 
 export const Search = () => {
   const location = useLocation();
@@ -9,7 +9,7 @@ export const Search = () => {
   const [query, setQuery] = useState("");
   const urlParams = useUrlParams();
   const updateUrlSearchParam = urlParams[1];
-  
+
   const searchText = location.pathname.includes("/movies") ? "movies" : "people";
   const searchParam = params.get(searchParamName) || "";
 
@@ -19,16 +19,16 @@ export const Search = () => {
   };
 
   useEffect(() => {
-    setQuery(searchParam);  
+    setQuery(searchParam);
   }, [searchParam]);
 
   return (
     <SearchWrapper>
       <SearchIcon />
       <StyledInput 
-        value={query}
+        value={query} 
         placeholder={`Search for ${searchText}...`} 
-        debounceTimeout={700}
+        debounceTimeout={700} 
         onChange={setUrlQuery} 
       />
     </SearchWrapper>

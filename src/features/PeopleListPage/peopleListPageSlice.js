@@ -1,10 +1,10 @@
-import { createSlice }  from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const peopleListSlice = createSlice({
   name: "peopleList",
   initialState: {
     status: "initial",
-},
+  },
   reducers: {
     fetchPeopleList: (_, { payload: { pageNumber, searchParam } }) => ({
       status: "loading",

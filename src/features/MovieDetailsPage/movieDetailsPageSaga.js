@@ -1,7 +1,7 @@
 import { put, takeLatest, delay, call, select, all } from "redux-saga/effects";
-import { fetchMovieDetails, fetchMovieDetailsSuccess, fetchError, selectMovieId } from "./movieDetailsPageSlice";
 import { baseUrl, movieDetails, movieDetailsCredits, apiKey } from "../api";
 import { getData } from "../getData";
+import { fetchMovieDetails, fetchMovieDetailsSuccess, fetchError, selectMovieId } from "./movieDetailsPageSlice";
 
 function* fetchMovieDetailsHandler() {
   const id = yield select(selectMovieId);

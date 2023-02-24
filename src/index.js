@@ -1,14 +1,14 @@
 import React from "react";
-import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
-import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "./core/GlobalStyle";
+import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 import App from "./core/App";
+import { GlobalStyle } from "./core/GlobalStyle";
+import { router } from "./core/routes";
 import store from "./core/store";
 import { theme } from "./core/theme";
-import { router } from "./core/routes";
+import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,7 +16,7 @@ root.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <RouterProvider router={router} >
+        <RouterProvider router={router}>
           <App />
         </RouterProvider>
       </ThemeProvider>
