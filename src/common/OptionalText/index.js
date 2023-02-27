@@ -57,12 +57,6 @@ export const OptionalText = styled.p`
         margin: 0;
       }
     `}
-
-    ${({ hiddenMax }) => hiddenMax && css`
-      @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
-        display: none;
-      }
-    `}
   `}
 
   ${({ description }) => description && css`
@@ -106,8 +100,6 @@ export const OptionalText = styled.p`
   `}
 
   ${({ hiddenMax }) => hiddenMax && css`
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
       display: none;
-    }
   `}
 `;

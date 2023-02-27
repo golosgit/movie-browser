@@ -17,7 +17,7 @@ export const SearchWrapper = styled.div`
 `;
 
 export const StyledInput = styled(DebounceInput)`
-  width: auto;
+  width: calc(100% - 85px);
   border: none;
   outline: none;
   font-weight: 400;
@@ -26,7 +26,8 @@ export const StyledInput = styled(DebounceInput)`
   background-color: transparent;
   color: ${({ theme }) => theme.color.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
+    width: calc(100% - 72px);
     font-size: 13px;
     line-height: 1.3;
   }
@@ -35,7 +36,7 @@ export const StyledInput = styled(DebounceInput)`
 export const SearchIcon = styled(Icon)`
   margin: 0 16px 0 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileVerticalMax}px) {
     height: 13px;
     min-width: 13px;
     margin: 0 10px 0 18px;

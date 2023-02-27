@@ -46,7 +46,7 @@ export const MovieListPage = () => {
           <MovieList
             title={searchParam ? `Search results for "${searchParam}" (${totalResults})` : `Popular movies`}
             movieList={movieList}
-            hideMaxVotes
+            hideMaxVotes="true"
             listView="true"
             genres={genres}
           />

@@ -47,6 +47,7 @@ export const PersonDetailsPage = () => {
           />
           <MovieList 
             title={`Movies - cast${` (${cast?.length})` || ``}`} 
+            hideMaxVotes="true"
             movieList={cast} 
             credits="true" 
             listView="true" 
@@ -54,6 +55,7 @@ export const PersonDetailsPage = () => {
           />
           <MovieList 
             title={`Movies - crew${` (${crew?.length})` || ``}`} 
+            hideMaxVotes="true"
             movieList={crew} 
             credits="true" 
             listView="true" 
