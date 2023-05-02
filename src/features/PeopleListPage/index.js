@@ -1,48 +1,51 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper";
 import { Navigation } from "../../common/Navigation";
 import { Pagination } from "../../common/Paginaion";
 import { PeopleList } from "../../common/PeopleList";
 import { pageParamName, searchParamName } from "../../core/urlParams";
-import { fetchError, fetchPeopleList, selectPage, selectPeopleList, selectStatus, selectTotalPages, selectTotalResults } from "./peopleListPageSlice";
+import { baseUrl, apiKey, popularPeople } from "../api";
+import { fetchData } from "../fetchData";
+
+const createUrl = (...elements) => elements.join("");
 
 export const PeopleListPage = () => {
-  const dispatch = useDispatch();
-  const peopleList = useSelector(selectPeopleList);
-  const status = useSelector(selectStatus);
-  const page = useSelector(selectPage);
-  const totalPages = useSelector(selectTotalPages);
-  const totalResults = useSelector(selectTotalResults);
   const [params] = useSearchParams();
+  const [queryStatus, setQueryStatus] = useState("initial");
 
   const pageNumber = params.get(pageParamName) || 1;
   const searchParam = params.get(searchParamName) || "";
 
-  if (pageNumber > totalPages) {
-    dispatch(fetchError());
-  }
+  const { status, data } = useQuery(["peopleList"], () => fetchData(createUrl(baseUrl, popularPeople, apiKey)));
 
   useEffect(() => {
-    if (status !== "loading") {
-      dispatch(fetchPeopleList({ pageNumber, searchParam }));
+    if (pageNumber > data?.total_pages) {
+      setQueryStatus("error");
+    } else {
+      setQueryStatus(status);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, pageNumber, searchParam]);
+  }, [status, pageNumber, data?.total_pages]);
 
   return (
     <>
       <Navigation />
-      <Content status={status} message={searchParam}>
+      <Content 
+        status={queryStatus} 
+        message={searchParam}
+      >
         <MainWrapper>
           <PeopleList
-            title={searchParam ? `Search results for "${searchParam}" (${totalResults})` : "Popular movies"}
-            peopleList={peopleList}
+            title={searchParam ? `Search results for "${searchParam}" (${data?.total_results})` : "Popular movies"}
+            peopleList={data?.results}
             listView="true"
           />
-          <Pagination page={page} totalPages={totalPages} />
+          <Pagination 
+            page={data?.page} 
+            totalPages={data?.total_pages} 
+          />
         </MainWrapper>
       </Content>
     </>
