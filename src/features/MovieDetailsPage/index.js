@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
+import { useQueries } from "@tanstack/react-query";
 import { Content } from "../../common/Content";
 import { Details } from "../../common/Details";
 import { MainWrapper } from "../../common/MainWrapper";
@@ -8,52 +8,60 @@ import { Navigation } from "../../common/Navigation";
 import { PeopleList } from "../../common/PeopleList";
 import { toMovieList } from "../../core/routes";
 import { searchParamName } from "../../core/urlParams";
+import { apiKey, baseUrl, movieDetails, movieDetailsCredits } from "../api";
+import { fetchData } from "../fetchData";
 import { Backdrop } from "./Backdrop";
-import { fetchMovieDetails, selectMovieDetails, selectCast, selectCrew, selectStatus } from "./movieDetailsPageSlice";
+
+const createUrl = (...elements) => elements.join("");
 
 export const MovieDetailsPage = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const movieDetails = useSelector(selectMovieDetails);
-  const cast = useSelector(selectCast);
-  const crew = useSelector(selectCrew);
-  const status = useSelector(selectStatus);
   const [params] = useSearchParams();
+  const { id } = useParams();
 
   const searchParam = params.get(searchParamName) || "";
 
-  const { id } = useParams();
+  const [movieDetailsQuery, movieDetailsCreditsQuery] = useQueries({
+    queries: [
+      {
+        queryKey: ["movieDetails"],
+        queryFn: () => fetchData(createUrl(baseUrl, movieDetails, id, apiKey)),
+      },
+      {
+        queryKey: ["movieDetailsCredits"],
+        queryFn: () => fetchData(createUrl(baseUrl, movieDetails, id, movieDetailsCredits, apiKey)),
+      },
+    ],
+  });
 
   useEffect(() => {
-    if (!searchParam) {
-      dispatch(fetchMovieDetails(id));
-    } else {
+    if (searchParam) {
       navigate(`${toMovieList}?${searchParamName}=${searchParam}`);
     }
-  }, [searchParam, navigate, dispatch, id]);
+  }, [searchParam, navigate]);
 
   return (
     <>
       <Navigation />
-      <Content status={status}>
-        {movieDetails?.backdrop_path ? 
-          <Backdrop movieDetails={movieDetails} /> : 
+      <Content status={movieDetailsQuery.fetchStatus === "fetching" ? "loading" : movieDetailsQuery.status}>
+        {movieDetailsQuery.data?.backdrop_path ? 
+          <Backdrop movieDetails={movieDetailsQuery.data} /> : 
           ""
         }
         <MainWrapper movie>
           <Details 
-            movieDetails={movieDetails} 
+            movieDetails={movieDetailsQuery.data} 
             movie="true" 
           />
           <PeopleList 
             title="Cast" 
-            peopleList={cast} 
+            peopleList={movieDetailsCreditsQuery.data?.cast} 
             listView="true" 
             credits="true" 
           />
           <PeopleList 
             title="Crew" 
-            peopleList={crew} 
+            peopleList={movieDetailsCreditsQuery.data?.crew} 
             listView="true" 
             credits="true" 
           />
