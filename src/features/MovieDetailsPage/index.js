@@ -9,10 +9,9 @@ import { PeopleList } from "../../common/PeopleList";
 import { toMovieList } from "../../core/routes";
 import { searchParamName } from "../../core/urlParams";
 import { apiKey, baseUrl, movieDetails, movieDetailsCredits } from "../api";
+import { createUrl } from "../createUrl";
 import { fetchData } from "../fetchData";
 import { Backdrop } from "./Backdrop";
-
-const createUrl = (...elements) => elements.join("");
 
 export const MovieDetailsPage = () => {
   const navigate = useNavigate();

@@ -1,0 +1,1 @@
+export const createUrl = (...elements) => elements.join("");

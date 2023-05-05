@@ -8,9 +8,8 @@ import { Pagination } from "../../common/Paginaion";
 import { PeopleList } from "../../common/PeopleList";
 import { pageParamName, searchParamName } from "../../core/urlParams";
 import { baseUrl, apiKey, popularPeople } from "../api";
+import { createUrl } from "../createUrl";
 import { fetchData } from "../fetchData";
-
-const createUrl = (...elements) => elements.join("");
 
 export const PeopleListPage = () => {
   const [params] = useSearchParams();

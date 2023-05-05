@@ -8,13 +8,12 @@ import { Navigation } from "../../common/Navigation";
 import { Pagination } from "../../common/Paginaion";
 import { pageParamName, searchParamName } from "../../core/urlParams";
 import { baseUrl, genres, apiKey, popularMovies } from "../api";
+import { createUrl } from "../createUrl";
 import { fetchData } from "../fetchData";
-
-const createUrl = (...elements) => elements.join("");
 
 export const MovieListPage = () => {
   const [params] = useSearchParams();
-  const [status, setStatus] = useState("initial");
+  const [queryStatus, setQueryStatus] = useState("initial");
 
   const pageNumber = params.get(pageParamName) || 1;
   const searchParam = params.get(searchParamName) || "";
@@ -36,9 +35,9 @@ export const MovieListPage = () => {
 
   useEffect(() => {
     if (pageNumber > movieListQuery.data?.total_pages) {
-      setStatus("error");
+      setQueryStatus("error");
     } else {
-      setStatus(movieListQuery.status);
+      setQueryStatus(movieListQuery.status);
     }
   }, [movieListQuery.status, pageNumber, movieListQuery.data?.total_pages]);
 
@@ -46,7 +45,7 @@ export const MovieListPage = () => {
     <>
       <Navigation />
       <Content 
-        status={status} 
+        status={queryStatus} 
         message={searchParam}
       >
         <MainWrapper>

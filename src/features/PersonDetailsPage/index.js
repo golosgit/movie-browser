@@ -9,9 +9,8 @@ import { Navigation } from "../../common/Navigation";
 import { toPeopleList } from "../../core/routes";
 import { searchParamName } from "../../core/urlParams";
 import { baseUrl, genres, apiKey, personDetails, personDetailsCredits } from "../api";
+import { createUrl } from "../createUrl";
 import { fetchData } from "../fetchData";
-
-const createUrl = (...elements) => elements.join("");
 
 export const PersonDetailsPage = () => {
   const navigate = useNavigate();
