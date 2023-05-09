@@ -7,7 +7,7 @@ import { MovieList } from "../../common/MovieList";
 import { Navigation } from "../../common/Navigation";
 import { Pagination } from "../../common/Paginaion";
 import { pageParamName, searchParamName } from "../../core/urlParams";
-import { baseUrl, genres, apiKey, popularMovies } from "../api";
+import { baseUrl, genres, apiKey, popularMovies, searchMovies } from "../api";
 import { createUrl } from "../createUrl";
 import { fetchData } from "../fetchData";
 
@@ -27,8 +27,10 @@ export const MovieListPage = () => {
         cacheTime: 1000 * 60 * 15,
       },
       {
-        queryKey: ["movieList"],
-        queryFn: () => fetchData(createUrl(baseUrl, popularMovies, apiKey)),
+        queryKey: ["movieList", { page: pageNumber, searchQuery: searchParam }],
+        queryFn: searchParam ? 
+          () => fetchData(createUrl(baseUrl, searchMovies, apiKey, "&page=", pageNumber, "&query=", searchParam)) :
+          () => fetchData(createUrl(baseUrl, popularMovies, apiKey, "&page=", pageNumber)),
       },
     ],
   });
