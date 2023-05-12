@@ -23,8 +23,7 @@ App is using API provided by [**TMDB - The Movie Database**](https://www.themovi
 - CSS (flex, grid, media queries)
 - React
 - React Router v6.6.2
-- React Redux
-- Redux Saga
+- Tanstack (React) Query
 - Styled Components
 - data fetched from external API
 - error handling
