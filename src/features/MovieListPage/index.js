@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useQueries } from "@tanstack/react-query";
+import { useQueries, useQueryClient } from "@tanstack/react-query";
 import { Content } from "../../common/Content";
 import { MainWrapper } from "../../common/MainWrapper";
 import { MovieList } from "../../common/MovieList";
@@ -14,8 +14,9 @@ import { fetchData } from "../fetchData";
 export const MovieListPage = () => {
   const [params] = useSearchParams();
   const [queryStatus, setQueryStatus] = useState("initial");
+  const queryClient = useQueryClient();
 
-  const pageNumber = params.get(pageParamName) || 1;
+  const pageNumber = parseInt(params.get(pageParamName)) || 1;
   const searchParam = params.get(searchParamName) || "";
 
   const [genresQuery, movieListQuery] = useQueries({
@@ -40,8 +41,17 @@ export const MovieListPage = () => {
       setQueryStatus("error");
     } else {
       setQueryStatus(movieListQuery.status);
+
+      if (pageNumber + 1 <= movieListQuery.data?.total_pages && pageNumber + 1 <= 500) {
+        queryClient.prefetchQuery(
+          ["movieList", { page: pageNumber + 1, searchQuery: searchParam }],
+            searchParam ? 
+              () => fetchData(createUrl(baseUrl, searchMovies, apiKey, "&page=", pageNumber + 1, "&query=", searchParam)) :
+              () => fetchData(createUrl(baseUrl, popularMovies, apiKey, "&page=", pageNumber + 1)),
+        )
+      }
     }
-  }, [movieListQuery.status, pageNumber, movieListQuery.data?.total_pages]);
+  }, [movieListQuery.status, pageNumber, movieListQuery.data?.total_pages, searchParam, queryClient]);
 
   return (
     <>
